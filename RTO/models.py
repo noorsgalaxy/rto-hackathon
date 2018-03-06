@@ -2,28 +2,28 @@
 from __future__ import unicode_literals
 
 from django.db import models
+from django.utils import timezone
 
 
 class personal_detail(models.Model):
-    person_name = models.CharField(max_length = 100)
-    father_name = models.CharField(max_length = 100)
-    mother_name = models.CharField(max_length = 100)
-    age = models.IntegerField()
-    permanent_address = models.CharField(max_length = 250)
-    temporary_address = models.CharField(max_length = 250)
-    district = models.CharField(max_length = 50)
-    state = models.CharField(max_length = 50)
-    duration_stay = models.FloatField(max_length = 4)
+    user_name = models.CharField(max_length = 100,default='satya')
+    father_name = models.CharField(max_length = 100,default='deep')
+    mother_name = models.CharField(max_length = 100,default='satya')
+#    gender = models.CharField(max_length = 6,choices=(('MALE','Male'),('FEMALE','Female')),default=1)
+    permanent_address = models.CharField(max_length = 250,default='satya')
+    temporary_address = models.CharField(max_length = 250,default='satya')
+    district = models.CharField(max_length = 50,default='satya')
+    state = models.CharField(max_length = 50,default='satya')
+    duration_stay = models.FloatField(max_length = 4,default=0.0)
     pan_no = models.IntegerField(default = None)
     aadhar_no = models.IntegerField(primary_key = True)
-    place_of_birth = models.CharField(max_length = 50)
-    mobile_no = models.IntegerField()
-    email_id = models.EmailField(max_length = 254)
+    mobile_no = models.IntegerField(default=0)
+    email_id = models.EmailField(max_length = 25,default='satya')
 
 
     def __str__(self):
-        return self.person_name + " | " + str(self.aadhar_no)
-
+        return str(self.aadhar_no)
+'''
 class vehicle_detail(models.Model):
     owner = models.ForeignKey(personal_detail)
     dealer_name = models.CharField(max_length = 50)
@@ -66,7 +66,7 @@ class police_officer(models.Model):
 
     def __str__(self):
         return str(vehicle_no)
-
+'''
 
 
 
