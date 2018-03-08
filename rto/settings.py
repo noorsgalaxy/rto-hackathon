@@ -31,7 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'RTO.apps.RtoConfig',
+    'mud.apps.MudConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.sites',
