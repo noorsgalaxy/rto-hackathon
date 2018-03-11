@@ -2,7 +2,11 @@
 from __future__ import unicode_literals
 
 from django.contrib import admin
-from .models import PersonalDetail
+from .models import * 
 # Register your models here.
 
 admin.site.register(PersonalDetail)
+
+admin.site.register(PresentAdd)
+admin.site.register(PermanentAdd)
+admin.site.register(VehicleDetails)

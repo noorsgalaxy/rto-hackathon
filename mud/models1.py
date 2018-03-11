@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
+
 
 
 class PersonalDetail(models.Model):
@@ -42,7 +42,7 @@ class VehicleDetails(models.Model):
     numberof_cylinders = models.IntegerField()
     horse_power = models.IntegerField()
     cubic_capacity = models.IntegerField()
-    chassis_no = models.CharField(primary_key = True , max_length = 50)
+    chassis_no = models.CharField(max_length = 50)
     engine_number = models.CharField(max_length = 100)
     seating_capacity = models.IntegerField()
     fuel_engine = models.CharField(max_length = 20)
@@ -77,13 +77,11 @@ class police_officer(models.Model):
 
 
 class PresentAdd(models.Model):
-    vehicle = models.ForeignKey(VehicleDetails,default='')
+    user_personal = models.ForeignKey(VehicleDetails,default='')
     add1 = models.CharField(max_length = 200)
     state = models.CharField(max_length = 50)
     district = models.CharField(max_length = 50)
     pincode = models.CharField(max_length = 6)
-
-
 
 
 

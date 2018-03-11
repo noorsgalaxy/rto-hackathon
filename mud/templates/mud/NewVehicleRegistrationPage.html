@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+{%load staticfiles %}
+{% load widget_tweaks %}
+<html>
+<head>
+<meta charset="ISO-8859-1">
+	  <link rel="stylesheet" href={% static "mud/css/vendor/bootstrap/bootstrap.min.css" %}>
+  	  <link rel="stylesheet" href={% static "mud/css/main.css" %}>
+<title>New Vehicle Registration</title>
+</head>
+<body>
+ <div class="row">
+ 	<div class="row">
+		 <div class="container">
+                        <div class="inline-section vertical-right-divider">
+                            <div id="logo">
+                                <a href="https://parivahan.gov.in/parivahan" title="Home">
+                                    <img src="HTTPS://parivahan.gov.in/parivahan/sites/default/files/logo-parivahan-sewa-en.png" class="emblem-resize"></a>
+                            </div>
+
+                        </div>
+                        <div class="inline-section fix-width">
+                            <div class="govt-india">
+                                Government of India 
+                            </div>
+                            <div class="slogan-name">
+                                Ministry of Urban Development &amp; Highways       
+                            </div>
+                        </div>
+           </div>
+	</div>
+	<!-- menu section begin -->
+	<div class="row" >
+	
+		<nav class="navbar" id="navigation">
+		  <div class="container-fluid">
+		    
+		    <ul class="nav navbar-nav">
+		      <li class="active" ><a href="#" id="text">VISION</a></li>
+		      <li><a href="#" id="text">ABOUT US</a></li>
+		      <li><a href="#" id="text">FAQ</a></li>
+		      <li><a href="#" id="text">CONTACT US</a></li>
+		    </ul>
+		  </div>
+        </nav>
+	
+	</div>
+	<!-- menu section ends -->
+	
+	<!-- main content row begin -->
+	<div class="row" style="margin-top:1.5%; margin-left:3%;margin-right:3%">
+	
+	<!-- personal details begin-->
+     <div class="row" >
+      <div class="col-md-12">
+        <div class="panel panel-info">
+			<div class="panel-heading"> Owner details | {{ user }} </div>
+	           <div class="panel-body">
+		     		<form class="form-horizontal" method="POST" role="form" name="personalform">{% csrf_token %}
+						{% for f in pdetail_f %}
+			 			<div class="form-group row">
+						    <label for="ownerName" class="col-sm-2 col-form-label">{{ f.label_tag }}</label>
+						    <div class="col-sm-10">
+						      {% render_field f class="form-control" %}
+						    </div>
+						</div>
+						{% endfor %}
+				
+				
+		         </div>
+		 	
+		 	</div>	
+	   </div>
+	  </div> 	
+	   <!--  personal details ends -->
+				
+		<!--  address details begin -->
+		<div class="row">
+				 	
+				<!-- -Adreess Details by user-->
+				<div class="col-md-6">
+				  <div class="panel panel-info">
+					<div class="panel-heading">
+						Permanent Address </div>
+					
+						<div class="panel-body">
+								
+						 			{% for f in permanentadd_f %}
+			 			<div class="form-group row">
+						    <label for="ownerName" class="col-sm-2 col-form-label">{{ f.label_tag }}</label>
+						    <div class="col-sm-10">
+						      {% render_field f class="form-control" %}
+						    </div>
+						</div>
+						{% endfor %}
+					     		
+						</div>
+					</div>
+				</div>
+				
+					<!-- present address -->	
+				<div class="col-md-6">
+				  <div class="panel panel-info">
+					<div class="panel-heading"> Present Address</div>
+					
+						<div class="panel-body">
+								
+						 			{% for f in presentadd_f %}
+			 			<div class="form-group row">
+						    <label for="ownerName" class="col-sm-2 col-form-label">{{ f.label_tag }}</label>
+						    <div class="col-sm-10">
+						      {% render_field f class="form-control" %}
+						    </div>
+						</div>
+						{% endfor %}
+					     							
+					      </div>
+					</div>
+				</div> 		
+				 		
+         </div>
+		<!--  address details ends -->		
+				
+		<!-- vechicke details begin -->
+	<div class="row" >
+      <div class="col-md-12">
+        <div class="panel panel-info">
+			<div class="panel-heading"> Vechicle Details </div>
+	        <div class="panel-body">
+		     		
+			 			{% for f in vdetails_f %}
+			 			<div class="form-group row">
+						    <label for="ownerName" class="col-sm-2 col-form-label">{{ f.label_tag }}</label>
+						    <div class="col-sm-10">
+						      {% render_field f class="form-control" %}
+						    </div>
+						</div>
+						{% endfor %}
+		     		
+				
+		         </div>
+		 	</div>	
+	   </div>
+	 </div> 	
+		<!-- vechicle details ends -->
+			<button type="submit" class="btn btn-success btn-lg btn-block"> CLICK HERE TO SUBMIT DATA  </button>
+</form>	
+	</div>
+	
+ </div>
+ <script src={% static "mud/js/vendor/jquery/jquery-2.1.4-min.js" %}></script>
+ 
+ <script src={% static "mud/js/vendor/bootstrap/bootstrap.min.js" %}></script>
+</body>
+</html>

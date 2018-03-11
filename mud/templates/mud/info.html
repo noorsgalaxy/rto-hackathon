@@ -2,6 +2,9 @@
 <p>User : {{ user }}</p>
 <form  action=" " method="post">
     {% csrf_token %}
-    {{ form.as_p }}
+    {{pdetail_f.as_p}}
+    {{presentadd_f.as_p}}
+    {{permanentadd_f.as_p}}
+    {{ vdetails_f.as_p }}
     <input type="submit" value="Submit" />
 </form>

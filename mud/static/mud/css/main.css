@@ -1,0 +1,185 @@
+@CHARSET "ISO-8859-1";
+
+body{
+	width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+header {
+	  width: 100%;
+	  height:80px; 
+	  overflow: hidden;
+	  top: 0;
+	  left: 0;
+	  z-index: 999;
+	  background: #124DAC;
+	  color: #FFFFFF;
+	  -webkit-transition: height 0.3s;
+	  -moz-transition: height 0.3s;
+	  -ms-transition: height 0.3s;
+	  -o-transition: height 0.3s;
+	  transition: height 0.3s; 
+  }
+  header h1#logo {
+    display: inline-block;
+  	height:80px; 
+    float: left;
+    font-family: "Oswald", sans-serif;
+    
+    color: white;
+    font-weight: 400;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s; 
+    }
+  header nav {
+    display: inline-block;
+    float: right; 
+    }
+    header nav a {
+      line-height: 80px;
+      margin-left: 20px;
+      color: #FFFFFF;
+      font-weight: 700;
+      font-size: 18px;
+      -webkit-transition: all 0.3s;
+      -moz-transition: all 0.3s;
+      -ms-transition: all 0.3s;
+      -o-transition: all 0.3s;
+      transition: all 0.3s; 
+      }
+      header nav a:hover {
+        color: white; 
+        }
+  header.smaller {
+    height: 60px; 
+    }
+    header.smaller h1#logo {
+      width: 150px;
+      height: 60px;
+      line-height: 60px;
+      font-size: 25px; 
+      }
+    header.smaller nav a {
+      line-height: 60px; 
+      }
+      
+ /*css for parivahn logo and slogan*/     
+  .inline-section {
+    display: inline-block;
+    vertical-align: top;
+}
+.vertical-right-divider {
+    border-right: 2px solid #000000;
+    padding-right: 10px;
+    margin: 5px 10px 5px 0px;
+    box-sizing: content-box;
+}
+
+.govt-india {
+    font-family: 'Open Sans';
+    font-size: 1.5em;
+    color: #484646;
+    margin: 8px auto 0px;
+}
+
+.slogan-name {
+    font-family: 'Open Sans';
+    font-size: 1.75em;
+    color: #000000;
+    text-shadow: 1px 1px #CCC;
+    text-transform: uppercase;
+    font-weight: bold;
+}    
+
+/*css for navigation bar*/
+
+#navigation{
+	background: -webkit-linear-gradient(top, #3a96ce, #266184);
+	text-decoration: none;
+    color: #FFFFFF;
+ margin:0;
+    margin-left:2em;
+   
+}
+
+#main{
+	background:url("../res/img/bldg.jpg");
+	background-size: 100%;
+     margin-left: 1em;
+    margin-right: 1em
+    background-repeat: no-repeat;
+}
+
+#main_content_row{
+	margin-top:1em;
+}
+/*footer*/
+#vahan-footer-section {
+    width: 103%;
+    text-align:center;
+    background: #373636;
+   
+   
+    
+    color: #FFF;
+}
+#text{ color: white;
+
+
+}
+
+
+/*accordion css*/
+
+.accordionPanel {
+    padding: 0 18px;
+    display: none;
+    background-color: white;
+    overflow: hidden;
+}
+
+
+/*pollution control accordion particular css*/
+.active, .pollutionControlAccordian:hover {
+    background-color: #ccc; 
+}
+.pollutionControlAccordian {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    margin-bottom: .5em;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+}
+
+
+/*pollution control accordion specific  css*/
+.policeControlAccordian {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    margin-bottom: .5em;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+}
+
+.active, .policeControlAccordian:hover {
+    background-color: #ccc; 
+}
+

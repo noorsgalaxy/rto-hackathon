@@ -3,8 +3,8 @@ from __future__ import unicode_literals
 
 from django.shortcuts import render
 from django.http import HttpResponse, Http404, HttpResponseRedirect
-from .models import PersonalDetail
-from .forms import PersonalDetailForm
+from .models import *
+from .forms import *
 from django.contrib.auth.decorators import login_required
 
 '''
@@ -18,21 +18,49 @@ def detail(request, aadhar_no):
 
 @login_required(login_url = '/accounts/login/')
 def get_info(request):
+    pdetail_i = None
+    presentadd_i = None
+    permanentadd_i = None
+    vdetails_i = None
     try:
-        instance = PersonalDetail.objects.get(user = request.user)
-    except PersonalDetail.DoesNotExist:
-        instance = None
+       pdetail_i = PersonalDetail.objects.get(user = request.user)
+       permanentadd_i = PermanentAdd.objects.get(user_personal = pdetail_i)
+       vdetails_i = VehicleDetails.objects.get(owner = pdetail_i)
+       presentadd_i = PresentAdd.objects.get(vehicle = vdetails_i)
+    except:
+        pdetail_i = None
+        presentadd_i = None
+        permanentadd_i = None
+        vdetails_i = None
     if request.method == 'POST':
-        form = PersonalDetailForm(request.POST,instance=instance)
-        if form.is_valid():
-            details = form.save(commit=False)
-            details.user = request.user
-            details.save()
+        pdetail = PersonalDetailForm(request.POST,instance=pdetail_i)
+        presentadd = PresentAddForm(request.POST,instance=presentadd_i)
+        permanentadd = PermanentAddForm(request.POST,instance=permanentadd_i)
+        vdetails = VehicleDetailsForm(request.POST,instance=vdetails_i)
+        if all([pdetail.is_valid(), presentadd.is_valid(), permanentadd.is_valid(), vdetails.is_valid()]):
+            pdetail = pdetail.save(commit=False)
+            pdetail.user = request.user
+            pdetail.save()
+            permanentadd = permanentadd.save(commit=False)
+            permanentadd.user_personal = pdetail
+            permanentadd.save()
+            vdetails = vdetails.save(commit=False)
+            vdetails.owner = pdetail
+            vdetails.save()
+            presentadd = presentadd.save(commit=False)
+            presentadd.vehicle = vdetails
+            presentadd.save()
+
             return HttpResponseRedirect('')
+        else:
+            return HttpResponseRedirect('erere')
+
     else:
-        print instance
-        form = PersonalDetailForm(instance=instance)
-    return render(request, 'mud/info.html', {'form': form,'user':request.user})
+        pdetail_f = PersonalDetailForm(instance=pdetail_i)
+        permanent_f = PermanentAddForm(instance=permanentadd_i)
+        vdetails_f = VehicleDetailsForm(instance=vdetails_i)
+        presentadd_f = PresentAddForm(instance=presentadd_i)
+        return render(request, 'mud/NewVehicleRegistrationPage.html', {'pdetail_f': pdetail_f,'user': request.user,'presentadd_f': presentadd_f,'vdetails_f': vdetails_f,'permanentadd_f':permanent_f})
 
 
 
