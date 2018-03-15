@@ -63,5 +63,32 @@ def get_info(request):
         return render(request, 'mud/NewVehicleRegistrationPage.html', {'pdetail_f': pdetail_f,'user': request.user,'presentadd_f': presentadd_f,'vdetails_f': vdetails_f,'permanentadd_f':permanent_f})
 
 
+@login_required(login_url = '/accounts/login/')
+def accident_info(request,v_no):
+    try:
+        vdetails_i = VehicleDetails.objects.get(registration_no=v_no)
+        presentadd_i = PresentAdd.objects.get(vehicle = vdetails_i)
+        pdetail_i = vdetails_i.owner
+        permanentadd_i = PermanentAdd.objects.get(user_personal = pdetail_i)
+    except:
+        pdetail_i = None
+        presentadd_i = None
+        permanentadd_i = None
+        vdetails_i = None
+    if request.method == 'POST':
+        policeofficer = PoliceOfficerForm(request.POST)
+        if policeofficer.is_valid() :
+            policeofficer = policeofficer.save(commit=False)
+            policeofficer.vehicle_no = vdetails_i
+            policeofficer.save()
+            return HttpResponseRedirect('')
+        else:
+            return HttpResponseRedirect('rr')
+    else:
+        pdetail_f = PersonalDetailForm(instance=pdetail_i)
+        permanent_f = PermanentAddForm(instance=permanentadd_i)
+        vdetails_f = VehicleDetailsForm(instance=vdetails_i)
+        presentadd_f = PresentAddForm(instance=presentadd_i)
+        police_f  =PoliceOfficerForm()
 
-# Create your views here.
+        return render(request, 'mud/PoliceControl.html', {'pdetail_f': pdetail_f,'police_f':police_f,'presentadd_f': presentadd_f,'vdetails_f': vdetails_f,'permanent_f':permanent_f})

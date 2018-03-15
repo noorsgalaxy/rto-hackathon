@@ -1,6 +1,7 @@
 from django import forms
-from mud.models import PersonalDetail, PresentAdd, PermanentAdd, VehicleDetails
+from mud.models import * 
 from django.utils.translation import ugettext_lazy as _
+from django.conf import settings
 class PersonalDetailForm(forms.ModelForm):
     class Meta:
         model = PersonalDetail
@@ -29,8 +30,14 @@ class VehicleDetailsForm(forms.ModelForm):
         exclude = ['user_personal','owner','registration_no']
 
 
+class PoliceOfficerForm(forms.ModelForm):
+    accident_date = forms.DateField(input_formats=settings.DATE_INPUT_FORMATS)
+    class Meta:
+        model = PoliceOfficer
+        exclude = ['vehicle_no']
 
-        '''
+
+'''
     user_name = forms.CharField(label = 'Name', max_length = 20)
     father_name = forms.CharField(label = 'Father Name', max_length = 100)
     mother_name = forms.CharField(label = 'Mother Name', max_length = 100)
@@ -43,4 +50,5 @@ class VehicleDetailsForm(forms.ModelForm):
     pan_no = forms.IntegerField(label = 'Pan Number')
     aadhar_no = forms.IntegerField(label =Number')
     mobile_no = forms.IntegerField(label = 'Mobile Number')
-    email_id = forms.EmailField(label = 'Email id')'''
+    email_id = forms.EmailField(label = 'Email id')
+'''
