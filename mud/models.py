@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
@@ -96,16 +95,21 @@ class PresentAdd(models.Model):
 
 
 
-'''
-class pollution_check(models.Model):
-    user_name = models.CharField(max_length = 20)
-    vehicle_no = models.ForeignKey(vehicle_detail)
+
+class PollutionCenter(models.Model):
+    p_status = (
+        ('GOOD','Good'),
+        ('BAD','Bad')
+    )
+    v_no = models.ForeignKey(VehicleDetails, default='')
+    service_date = models.DateField()
+    next_service_data = models.DateField()
     total_distance = models.IntegerField()
-    pollution_status = models.CharField(max_length = 20)
+    pollution_status = models.CharField(max_length = 4, choices=p_status, default=1)
 
     def __str__(self):
-        return str(self.vehicle_no)
-'''
+        return str(self.v_no)
+
 
 
 
