@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
@@ -28,15 +27,34 @@ class PermanentAdd(models.Model):
     district = models.CharField(max_length = 50)
     pincode = models.CharField(max_length = 6)
 
-
+    def __str__(self):
+        return str(self.user_personal)
 
 class VehicleDetails(models.Model):
+    vtype =  (
+        ('PRIVATE','Private'),
+        ('GOODS','Goods'),
+        ('PASSENGER','Passenger'),
+        ('SPECIAL', 'Special'),
+    )
+    vclass = (
+        ('AMBULANCE','Ambulance'),
+        ('CRANE','Crane'),
+        ('FIRE FIGHTER','Fire Fighter'),
+        ('HEAVY GOODS VEHICLE','Heavy Goods Vehicle'),
+        ('L.M.V.(CAR)','L.M.V.(Car)'),
+        ('L.M.V.(JEEP/GYPSY)','L.M.V.(Jeep/GYPSY)'),
+        ('L.M.V.(VAN)','L.M.V.(Van)'),
+        ('MOTOR CYCLE','Motor Cycle'),
+        ('THREE WHEELER','Three Wheeler'),
+        ('TRACTOR','Tractor'),
+    )
     owner = models.ForeignKey(PersonalDetail,default='')
     dealer_name = models.CharField(max_length = 50)
     dealer_address = models.CharField(max_length = 250)
-    vehicle_class = models.CharField(max_length = 20)
+    vehicle_class = models.CharField(max_length = 20, choices = vclass, default = 8 )
     body_type = models.CharField(max_length = 20)
-    vehicle_type =  models.CharField(max_length = 20)
+    vehicle_type =  models.CharField(max_length = 20, choices = vtype, default=1)
     company_name = models.CharField(max_length = 15)
     year_manufacture = models.IntegerField()
     numberof_cylinders = models.IntegerField()
@@ -52,27 +70,16 @@ class VehicleDetails(models.Model):
 
     def __str__(self):
         return  str(self.chassis_no)
-'''
-class pollution_check(models.Model):
-    user_name = models.CharField(max_length = 20)
-    vehicle_no = models.ForeignKey(vehicle_detail)
-    total_distance = models.IntegerField()
-    pollution_status = models.CharField(max_length = 20)
+
+class PoliceOfficer(models.Model):
+    vehicle_no = models.ForeignKey(VehicleDetails, default='')
+    accident_location = models.CharField(max_length = 20)
+    accident_cause = models.CharField(max_length = 20)
+    no_persons_injured = models.IntegerField()
+    accident_date = models.DateField()
 
     def __str__(self):
         return str(self.vehicle_no)
-
-
-class police_officer(models.Model):
-    police_name = models.CharField(max_length = 20)
-    vehicle_no = models.ForeignKey(vehicle_detail)
-    accident_area = models.CharField(max_length = 20)
-    accident_cause = models.CharField(max_length = 20)
-
-
-    def __str__(self):
-        return str(vehicle_no)
-'''
 
 
 
@@ -83,6 +90,25 @@ class PresentAdd(models.Model):
     district = models.CharField(max_length = 50)
     pincode = models.CharField(max_length = 6)
 
+    def __str__(self):
+        return str(self.vehicle)
+
+
+
+
+class PollutionCenter(models.Model):
+    p_status = (
+        ('GOOD','Good'),
+        ('BAD','Bad')
+    )
+    v_no = models.ForeignKey(VehicleDetails, default='')
+    service_date = models.DateField()
+    next_service_data = models.DateField()
+    total_distance = models.IntegerField()
+    pollution_status = models.CharField(max_length = 4, choices=p_status, default=1)
+
+    def __str__(self):
+        return str(self.v_no)
 
 
 

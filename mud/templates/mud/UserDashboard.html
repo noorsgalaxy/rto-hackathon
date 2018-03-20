@@ -1,0 +1,346 @@
+<!-- search vechicle for police , PUC after login with there username and pass -->
+
+<!DOCTYPE html>
+{%load staticfiles %}
+{% load widget_tweaks %}
+<html>
+<head>
+<meta charset="ISO-8859-1">
+	  <link rel="stylesheet" href={% static "mud/css/vendor/bootstrap/bootstrap.min.css" %}>
+  	  <link rel="stylesheet" href={% static "mud/css/main.css" %}>
+<title>User Dashboard</title>
+</head>
+
+<style>
+/* Profile sidebar */
+.profile-sidebar {
+  padding: 20px 0 10px 0;
+  
+}
+
+.profile-userpic img {
+  float: none;
+  margin: 0 auto;
+  width: 50%;
+  height: 50%;
+  -webkit-border-radius: 50% !important;
+  -moz-border-radius: 50% !important;
+  border-radius: 50% !important;
+}
+
+.profile-usertitle {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.profile-usertitle-name {
+  color: #5a7391;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 7px;
+}
+
+.profile-usertitle-email {
+ 
+  color: #5b9bd1;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.profile-userbuttons {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.profile-userbuttons .btn {
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 6px 15px;
+  margin-right: 5px;
+}
+
+.profile-userbuttons .btn:last-child {
+  margin-right: 0px;
+}
+    
+.profile-usermenu {
+  margin-top: 30px;
+}
+
+.profile_nav > li{
+	padding:8px;
+    margin-left: 10%;
+    /* border: 2px solid; */
+    /* margin: 10%; */
+    /* margin-right: 10%; */
+    font-size: 14px;
+}
+}
+.profile-usermenu ul li:last-child {
+  border-bottom: none;
+}
+
+.profile-usermenu ul li a {
+  color: #93a3b5;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.profile-usermenu ul li a i {
+  margin-right: 8px;
+  font-size: 14px;
+}
+
+.profile-usermenu ul li a:hover {
+  background-color: #fafcfd;
+  color: #5b9bd1;
+}
+
+.profile-usermenu ul li.active {
+  border-bottom: none;
+}
+
+.profile-usermenu ul li.active a {
+  color: #5b9bd1;
+  background-color: #f6f9fb;
+  border-left: 2px solid #5b9bd1;
+  margin-left: -2px;
+}
+
+/* Profile Content */
+.profile-content {
+  padding: 20px;
+  background: #fff;
+  min-height: 460px;
+}
+</style>
+
+<body>
+<div class="row">
+	
+	
+	<!-- slogan row begin -->
+	<div class="row">
+		 <div class="container">
+              <div class="inline-section vertical-right-divider">
+                  <div id="logo">
+                       <a href="https://parivahan.gov.in/parivahan" title="Home">
+                       <img src={% static "mud/res/img/logo-parivahan-sewa-en.png"%} class="emblem-resize" ></a>
+                  </div>
+              </div>
+   
+              <div class="inline-section fix-width">
+                  <div class="govt-india">
+                       Government of India 
+                  </div>
+	              <div class="slogan-name">
+	                   Ministry of Urban Development &amp; Highways       
+	              </div>
+              </div>
+          </div>
+	</div>
+	
+	<!-- navigation menu section-->
+	<div class="row" >
+	    <nav class="navbar" id="navigation">
+		  <div class="container-fluid">
+		     <ul class="nav navbar-nav">
+			      <li class="active" ><a href="#" id="text">VISION</a></li>
+			      <li><a href="#" id="text">ABOUT US</a></li>
+			      <li><a href="#" id="text">FAQ</a></li>
+			      <li><a href="#" id="text">CONTACT US</a></li>
+		    </ul>
+		  </div>
+        </nav>
+	 </div>
+	<!-- navigation ends -->
+	
+	<!-- main content row-->
+	
+	<!-- left panel of main body -->
+	
+	  		<div class="row">
+	  			<div class="container" style="width:100%;background: #08102d;">
+	  				<!-- row of user navigation bar -->
+				    <div class="col-md-2" >
+						<div class="row profile">
+							<div class="profile-sidebar">
+								<!-- SIDEBAR USERPIC -->
+								<div class="profile-userpic">
+									<img src={% static "mud/res/img/login-user.png"%} class="img-responsive" alt="">
+								</div>
+								<!-- END SIDEBAR USERPIC -->
+								<!-- SIDEBAR USER TITLE -->
+								<div class="profile-usertitle">
+									<div class="profile-usertitle-name">
+										MUDBUD
+									</div>
+									<div class="profile-usertitle-email">
+										mudbud2.0@mudbud.com
+									</div>
+								</div>
+								<!-- END SIDEBAR USER TITLE -->
+								<!-- SIDEBAR MENU -->
+								<div class="profile-usermenu">
+									<div class="profile_nav">
+										<li >
+											<a href="#">
+											<i class="glyphicon glyphicon-user"></i>
+											Basic details </a>
+										</li>
+										<li>
+											<a href="{% url 'get_info' %}">
+											<i class="glyphicon glyphicon-list"></i>
+											Vechicle Registration </a>
+										</li>
+										<li>
+											<a href="#" target="_blank">
+											<i class="glyphicon glyphicon-ok"></i>
+											RC Transfer </a>
+										</li>
+										
+									</div>
+								</div>
+								<!-- END MENU -->
+							</div>
+						</div>
+					</div>
+					
+					<!-- row for right panel container  -->
+					<div class="col-md-10" style="background-color:white;">
+							
+								<div class="row" style="margin:2%">
+										<!-- frst row for user basic details -->
+										<div class="row">
+									      <div class="col-md-6">
+									          <div class="panel panel-info">
+												<div class="panel-heading">USER DETAILS </div>
+											       <div class="panel-body">
+											     		<form class="form-horizontal" role="form" name="personalform">
+												 			  <div class="form-group row">
+															    <label for="ownerAdahr" class="col-sm-2 col-form-label">Adhar No.</label>
+															    <div class="col-sm-10">
+															      <input type="text" class="form-control" id="ownerAdahr" placeholder="Adhar" readonly>
+															    </div>
+															  </div>
+															  <div class="form-group row">
+															    <label for="ownerContact" class="col-sm-2 col-form-label">Contact No</label>
+															    <div class="col-sm-10">
+															      <input type="text" class="form-control" id="ownerContact" placeholder="ownerContact" readonly>
+															    </div>
+															  </div>
+															  <div class="form-group row">
+															    <label for="ownerPan" class="col-sm-2 col-form-label">Pan No.</label>
+															    <div class="col-sm-10">
+															      <input type="text" class="form-control" id="ownerPan" placeholder="ownerPan" readonly>
+															    </div>
+															  </div>
+															  <div class="form-group row">
+															    <label for="ownerPan" class="col-sm-2 col-form-label">Pan No.</label>
+															    <div class="col-sm-10">
+															      <input type="text" class="form-control" id="ownerPan" placeholder="ownerPan" readonly>
+															    </div>
+															  </div>
+											     		</form>
+												    </div>
+							 	                </div>	
+								   			</div>
+								
+											<div class="col-md-6">
+												<div class="panel panel-info">
+													<div class="panel-heading"> USER PERMANENT ADDRESS </div>
+														<div class="panel-body">
+															<form class="form-horizontal" role="form" name="permamanentAddressForm">
+											 					<div class="form-group row">
+															    	<label for="address1" class="col-sm-2 col-form-label">Address Line1</label>
+															    	<div class="col-sm-10">
+															      		<input type="text"  class="form-control" id="address1" readonly>
+															    	</div>
+																</div>
+															    <div class="form-group row">
+															     <label for="permanentcity" class="col-sm-2 col-form-label">City</label>
+															     <div class="col-sm-10">
+															       <input type="text" class="form-control" id="permanentcity" placeholder="permanentcity" readonly>
+															     </div>
+															    </div>
+														  		<div class="form-group row">
+														        	<label for="permanentState" class="col-sm-2 col-form-label">State</label>
+														    		<div class="col-sm-10">
+														      			<input type="text" class="form-control" id="permanentState" placeholder="permanentState" readonly>
+														    		</div>
+														  		</div>
+														  		<div class="form-group row">
+														    		<label for="permamnetPin" class="col-sm-2 col-form-label">Pin Code</label>
+														    			<div class="col-sm-10">
+														      				<input type="text" class="form-control" id="permamnetPin" placeholder="permamnetPin" readonly>
+														    			</div>
+														 		 </div>
+							     							</form>
+														</div>
+												</div>
+											</div>
+							  			</div>
+							  			
+							  			<!-- second row for user already car details -->
+							  			
+							  			<div class="row">
+							  				<div class="panel panel-info">
+											  <div class="panel-heading">ALREADY REGISTERED VECHICLE </div>
+											   <div class="panel-body">
+							  					<table class="table table-hover">
+													  <thead>
+													    <tr>
+													      <th scope="col">#</th>
+													      <th scope="col">OWNER NAME</th>
+													      <th scope="col">REGISTRATION NO.</th>
+													      <th scope="col">VECHICLE NO.</th>
+													      <th scope="col"></th>
+													     
+													    </tr>
+													  </thead>
+													  <tbody>
+													{% for f in vno_f %}
+													    <tr>
+													      <th scope="row">{{ forloop.counter }}</th>
+													      <td>{{ puser_f.user_name }}</td>
+													      <td>Otto</td>
+													      <td>{{ f.registration_no }}</td>
+													      <td><a href="{% url 'vehicle_details' vehicle_no=f.registration_no %}"><button type="button" class="btn btn-warning ">VIEW</button></td>
+													{% endfor %}
+													    </tr>
+																										  </tbody>
+													</table>
+												</div>
+											</div>		
+							  			</div>
+							  	</div>		
+						
+					</div>
+				</div>
+	  		
+	  
+	 
+	</div>
+	
+	<!-- footer -->
+	<div class="row" id="vahan-footer-section">
+         <div class="col-md-3 left-position"></div>
+         <div class="col-md-6 center-position">
+            <div class="inline-section top-space">
+                        This Website belongs to MudBud2.0
+                        <br>
+                        Government of India
+            </div>
+         </div>
+         <div class="col-md-3 right-position footer-line-height"> </div>
+    </div>
+	<!-- footer ends-->
+	
+</div>
+ <script src={% static "mud/js/vendor/jquery/jquery-2.1.4-min.js" %}></script>
+ 
+ <script src={% static "mud/js/vendor/bootstrap/bootstrap.min.js" %}></script>
+</body>
+</html>

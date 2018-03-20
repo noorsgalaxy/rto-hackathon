@@ -1,9 +1,11 @@
 <!DOCTYPE html>
+{%load staticfiles %}
+{% load widget_tweaks %}
 <html>
 <head>
 <meta charset="ISO-8859-1">
-	  <link rel="stylesheet" href="css/vendor/bootstrap/bootstrap.min.css">
-  	  <link rel="stylesheet" href="css/main.css">
+	  <link rel="stylesheet" href={% static "mud/css/vendor/bootstrap/bootstrap.min.css" %}>
+  	  <link rel="stylesheet" href={% static "mud/css/main.css" %}>
 <title>Police Portal</title>
 
 <style>
@@ -67,33 +69,38 @@
 									        <div class="panel panel-info">
 												
 										           <div class="panel-body">
-											     		<form class="form-horizontal" role="form" name="personalform">
-												 			<div class="form-group row">
-															    <label for="ownerName" class="col-sm-2 col-form-label">Owner Name</label>
-															    <div class="col-sm-10">
-															      <input type="text"  class="form-control" id="ownerName" readonly>
-															    </div>
-															</div>
-															  <div class="form-group row">
-															    <label for="ownerAdahr" class="col-sm-2 col-form-label">Adhar No.</label>
-															    <div class="col-sm-10">
-															      <input type="text" class="form-control" id="ownerAdahr" placeholder="Adhar" readonly>
-															    </div>
-															  </div>
-															  <div class="form-group row">
-															    <label for="ownerContact" class="col-sm-2 col-form-label">Contact No</label>
-															    <div class="col-sm-10">
-															      <input type="text" class="form-control" id="ownerContact" placeholder="ownerContact" readonly>
-															    </div>
-															  </div>
-															  <div class="form-group row">
-															    <label for="ownerPan" class="col-sm-2 col-form-label">Pan No.</label>
-															    <div class="col-sm-10">
-															      <input type="text" class="form-control" id="ownerPan" placeholder="ownerPan" readonly>
-															    </div>
-															  </div>
-											     		</form>
-												
+		<fieldset class="for-panel">
+          <legend>Contact Info</legend>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-horizontal">               
+                  <label class="col-xs-5 control-label">Contact Name:</label>
+                  <p class="form-control-static">{{user_name}}</p> 
+<label class="col-xs-4 control-label">Gender:</label>
+                  <p class="form-control-static">{{gender}}</p> 				  
+
+                    <label class="col-xs-5 control-label">Father's name </label>
+                    <p class="form-control-static">{{father_name}}</p>   
+<label class="col-xs-5 control-label">Mother's name </label>
+                    <p class="form-control-static">{{mother_name}}</p>   					
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-horizontal">   
+                  <label class="col-xs-5 control-label">Phone Number: </label>
+                  <p class="form-control-static">{{mobile_no}}</p>               			  
+                  <label class="col-xs-4 control-label">Pan Number: </label>
+                  <p class="form-control-static">{{pan_no}}</p>             
+                               
+                  <label class="col-xs-4 control-label">Aadhar no:</label>
+                  <p class="form-control-static">{{aadhar_no}}</p>             
+                  <label class="col-xs-4 control-label">email id:</label>
+                  <p class="form-control-static">{{email_id}}</p>            
+                              
+              </div>
+            </div>
+          </div>
+        </fieldset>										
 									         </div>
 							 	
 									 	</div>	
@@ -114,68 +121,37 @@
 								<div class="panel-heading">
 						Permanent Address </div>
 									<div class="panel-body">
-										<form class="form-horizontal" role="form" name="permamanentAddressForm">
-						 					<div class="form-group row">
-										    	<label for="address1" class="col-sm-2 col-form-label">Address Line1</label>
-										    	<div class="col-sm-10">
-										      		<input type="text"  class="form-control" id="address1" readonly>
-										    	</div>
-											</div>
-										    <div class="form-group row">
-										     <label for="permanentcity" class="col-sm-2 col-form-label">City</label>
-										     <div class="col-sm-10">
-										       <input type="text" class="form-control" id="permanentcity" placeholder="permanentcity" readonly>
-										     </div>
-										    </div>
-									  		<div class="form-group row">
-									        	<label for="permanentState" class="col-sm-2 col-form-label">State</label>
-									    		<div class="col-sm-10">
-									      			<input type="text" class="form-control" id="permanentState" placeholder="permanentState" readonly>
-									    		</div>
-									  		</div>
-									  		<div class="form-group row">
-									    		<label for="permamnetPin" class="col-sm-2 col-form-label">Pin Code</label>
-									    			<div class="col-sm-10">
-									      				<input type="text" class="form-control" id="permamnetPin" placeholder="permamnetPin" readonly>
-									    			</div>
-									 		 </div>
-					     				</form>
-									</div>
-						    	</div>
-							</div>
-				
-					<!-- present address -->	
-							<div class="col-md-6">
-							  <div class="panel panel-info">
-								<div class="panel-heading">
-						Present Address </div>
-								<div class="panel-body">
-									<form class="form-horizontal" role="form" name="presentAddressForm">
-						 				<div class="form-group row">
-										    <label for="presentAddress1" class="col-sm-2 col-form-label">Address Line1</label>
-										    <div class="col-sm-10">
-									    	  <input type="text"  class="form-control" id="address1" readonly>
-									    	</div>
-										</div>
-									  	<div class="form-group row">
-									    	<label for="presentcity" class="col-sm-2 col-form-label">City</label>
-									    		<div class="col-sm-10">
-									      			<input type="text" class="form-control" id="presentcity" placeholder="presentcity" readonly>
-									    		</div>
-									  	</div>
-									  	<div class="form-group row">
-									    	<label for="presentState" class="col-sm-2 col-form-label">State</label>
-									    		<div class="col-sm-10">
-									      			<input type="text" class="form-control" id="presentState" placeholder="presentState" readonly>
-									    		</div>
-									  	</div>
-									  	<div class="form-group row">
-									    	<label for="presentPin" class="col-sm-2 col-form-label">Pin Code</label>
-									    		<div class="col-sm-10">
-									      			<input type="text" class="form-control" id="presentPin" placeholder="presentPin" readonly>
-									    		</div>
-									  	</div>
-					     		</form>						
+					                            				<fieldset class="for-panel">
+				<legend>Permanent Address</legend>
+                    <div class="row">
+            <div class="col-sm-6">
+              <div class="form-horizontal">               
+                  <label class="col-xs-5 control-label">Address:</label>
+                  <p class="form-control-static">{{add1}}</p>               
+                  <label class="col-xs-5 control-label">state: </label>
+                  <p class="form-control-static">{{state}}</p>               
+                    <label class="col-xs-5 control-label">District: </label>
+                    <p class="form-control-static">{{District}}</p> 
+ <label class="col-xs-5 control-label">Pin code: </label>
+                    <p class="form-control-static">{{pincode}}</p>					
+              </div>
+			  
+            </div>
+			<legend>Present Address</legend>
+            <div class="col-sm-6">
+              <div class="form-horizontal">               
+                 <label class="col-xs-5 control-label">Address:</label>
+                  <p class="form-control-static">{{add1}}</p>               
+                  <label class="col-xs-5 control-label">state: </label>
+                  <p class="form-control-static">{{state}}</p>               
+                    <label class="col-xs-5 control-label">District: </label>
+                    <p class="form-control-static">{{District}}</p> 
+ <label class="col-xs-5 control-label">Pin code: </label>
+                    <p class="form-control-static">{{pincode}}</p>	          
+              </div>
+            </div>
+          </div>
+        </fieldset>					
 					      </div>
 					</div>
 				</div> 		
@@ -193,32 +169,54 @@
        												 <div class="panel panel-info">
 													
 											        <div class="panel-body">
-												     		<form class="form-horizontal" role="form" name="personalform">
-													 			<div class="form-group row">
-																    <label for="vechicleName" class="col-sm-2 col-form-label">Vechicle Name</label>
-																    <div class="col-sm-10">
-																      <input type="text"  class="form-control" id="ownerName" placeholder="vechicleName" readonly>
-																    </div>
-																</div>
-																  <div class="form-group row">
-																    <label for="vechicleModel" class="col-sm-2 col-form-label">Vechicle Model</label>
-																    <div class="col-sm-10">
-																      <input type="text" class="form-control" id="ownerAdahr" placeholder="vechicleModel" readonly>
-																    </div>
-																  </div>
-																  <div class="form-group row">
-																    <label for="vechicleType" class="col-sm-2 col-form-label">Vechicle Type</label>
-																    <div class="col-sm-10">
-																      <input type="text" class="form-control" id="ownerContact" placeholder="vechicleType"readonly>
-																    </div>
-																  </div>
-																  <div class="form-group row">
-																    <label for="vechicleColor" class="col-sm-2 col-form-label">Vechicle color</label>
-																    <div class="col-sm-10">
-																      <input type="text" class="form-control" id="ownerPan" placeholder="vechicleColor" readonly>
-																    </div>
-																  </div>
-												     		</form>
+					                               <fieldset class="for-panel">
+          
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-horizontal">               
+                  <label class="col-xs-5 control-label">dealer Name:</label>
+                  <p class="form-control-static">{{dealer_name}}</p>               
+                  <label class="col-xs-5 control-label">dealer address: </label>
+                  <p class="form-control-static">{{dealer_address}}</p>               
+                    <label class="col-xs-5 control-label">Vehicle class: </label>
+                    <p class="form-control-static">{{vehicle_class}}</p> 
+ <label class="col-xs-5 control-label">Body type: </label>
+                    <p class="form-control-static">{{body_type}}</p> 
+ <label class="col-xs-5 control-label">Vehicle type: </label>
+                    <p class="form-control-static">{{vehicle_type}}</p> 	
+ <label class="col-xs-5 control-label">Company name: </label>
+                    <p class="form-control-static">{{company_name}}</p>
+					 <label class="col-xs-5 control-label">Year of Manufacture: </label>
+                    <p class="form-control-static">{{year_manufacture}}</p> 
+					 <label class="col-xs-5 control-label">Number of Cylinders: </label>
+                    <p class="form-control-static">{{numberof_cylinders}}</p> 
+					 <label class="col-xs-5 control-label">Horse power: </label>
+                    <p class="form-control-static">{{horse_power}}</p> 
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-horizontal">               
+                  <label class="col-xs-4 control-label">CC: </label>
+                  <p class="form-control-static">{{cubic_capacity}}</p>             
+                  <label class="col-xs-4 control-label">Chassis Number:</label>
+                  <p class="form-control-static">{{chassis_no}}</p>              
+                  <label class="col-xs-4 control-label">Engine number:</label>
+                  <p class="form-control-static">{{engine_number}}</p>             
+                  <label class="col-xs-4 control-label">Seating Capacity:</label>
+                  <p class="form-control-static">{{seating_capacity}}</p>            
+                  <label class="col-xs-4 control-label">Fuel Type:</label>
+                  <p class="form-control-static">{{fuel_engine}}</p>   
+ <label class="col-xs-5 control-label">unladen weight: </label>
+                    <p class="form-control-static">{{unladen_weight}}</p>
+					<label class="col-xs-5 control-label">Body Color: </label>
+                    <p class="form-control-static">{{body_color}}</p> 
+					<label class="col-xs-5 control-label">Registration No.: </label>
+                    <p class="form-control-static">{{registration_no}}</p> 				  
+              </div>
+            </div>
+          </div>
+        </fieldset>
+	
 														
 												         </div>
 		 												</div>	
@@ -229,7 +227,7 @@
 									</div>
 					<!-- section 3 for vechicke details ends -->
 					
-					<!--  section 4 for police protal begin -->
+					<!--  section 4 for pollution portal begin -->
 										<button class="pollutionControlAccordian"style="background-color:coral;">Pollution Centre PORTAL</button>
 											<div class="accordionPanel">
 											 		<div class="row" >
@@ -277,7 +275,7 @@
 														   </div>
 														 </div>
 											</div>
-		     		<!--  section 4 for police poratl ends -->
+		     		<!--  section 4 for pollution portal ends -->
 		         </div>
 		 	
 		 	</div>	
@@ -324,9 +322,9 @@ for (i = 0; i < acc.length; i++) {
     });
 }
 </script>
- <script src="js/vendor/jquery/jquery-2.1.4-min.js"></script>
+ <script src={% static "mud/js/vendor/jquery/jquery-2.1.4-min.js" %}></script>
  
- <script src="js/vendor/bootstrap/bootstrap.min.js"></script>
+ <script src={% static "mud/js/vendor/bootstrap/bootstrap.min.js" %}></script>>
  
 </body>
 </html>

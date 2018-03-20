@@ -1,12 +1,38 @@
 <!DOCTYPE html>
+{%load staticfiles %}
+{% load widget_tweaks %}
 <html>
 <head>
 <meta charset="ISO-8859-1">
-	  <link rel="stylesheet" href="css/vendor/bootstrap/bootstrap.min.css">
-  	  <link rel="stylesheet" href="css/main.css">
+	  <link rel="stylesheet" href={% static "mud/css/vendor/bootstrap/bootstrap.min.css" %}>
+  	  <link rel="stylesheet" href={% static "mud/css/main.css" %}>
 <title>Police Portal</title>
 
 <style>
+fieldset.for-panel {
+    background-color: #fcfcfc;
+	border: 1px solid #999;
+	border-radius: 4px;	
+	padding:15px 10px;
+	background-color: #d9edf7;
+    border-color: #bce8f1;
+	background-color: #f9fdfd;
+	margin-bottom:12px;
+}
+fieldset.for-panel legend {
+    background-color: #fafafa;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    color: #4381ba;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 10px;
+    margin: inherit;
+    padding: 7px;
+    width: auto;
+	background-color: #d9edf7;
+	margin-bottom: 0;
+}
 </style>
 </head>
 <body>
@@ -16,9 +42,8 @@
                         <div class="inline-section vertical-right-divider">
                             <div id="logo">
                                 <a href="https://parivahan.gov.in/parivahan" title="Home">
-                                    <img src="HTTPS://parivahan.gov.in/parivahan/sites/default/files/logo-parivahan-sewa-en.png" class="emblem-resize"></a>
+                            <img src="HTTPS://parivahan.gov.in/parivahan/sites/default/files/logo-parivahan-sewa-en.png" class="emblem-resize"></a>
                             </div>
-
                         </div>
                         <div class="inline-section fix-width">
                             <div class="govt-india">
@@ -32,10 +57,8 @@
 	</div>
 	<!-- menu section begin -->
 	<div class="row" >
-	
 		<nav class="navbar" id="navigation">
 		  <div class="container-fluid">
-		    
 		    <ul class="nav navbar-nav">
 		      <li class="active" ><a href="#" id="text">VISION</a></li>
 		      <li><a href="#" id="text">ABOUT US</a></li>
@@ -47,62 +70,58 @@
 	
 	</div>
 	<!-- menu section ends -->
-	
 	<!-- main content row begin -->
 	<div class="row" style="margin-top:1.5%; margin-left:3%;margin-right:3%">
-	
 	<!-- personal details begin-->
      <div class="row" >
       <div class="col-md-12">
         <div class="panel panel-info">
 			<div class="panel-heading"> Owner details </div>
 	           <div class="panel-body">
-	           		
 	           		<!-- section one for personal details begin  -->
-		     		<button class="policeControlAccordian" style="background-color:goldenrod;" >OWNER DETAILS</button>
-						<div class="accordionPanel">
-									 <div class="row" >
-									      <div class="col-md-12">
-									        <div class="panel panel-info">
-												
-										           <div class="panel-body">
-											     		<form class="form-horizontal" role="form" name="personalform">
-												 			<div class="form-group row">
-															    <label for="ownerName" class="col-sm-2 col-form-label">Owner Name</label>
-															    <div class="col-sm-10">
-															      <input type="text"  class="form-control" id="ownerName" readonly>
-															    </div>
-															</div>
-															  <div class="form-group row">
-															    <label for="ownerAdahr" class="col-sm-2 col-form-label">Adhar No.</label>
-															    <div class="col-sm-10">
-															      <input type="text" class="form-control" id="ownerAdahr" placeholder="Adhar" readonly>
-															    </div>
-															  </div>
-															  <div class="form-group row">
-															    <label for="ownerContact" class="col-sm-2 col-form-label">Contact No</label>
-															    <div class="col-sm-10">
-															      <input type="text" class="form-control" id="ownerContact" placeholder="ownerContact" readonly>
-															    </div>
-															  </div>
-															  <div class="form-group row">
-															    <label for="ownerPan" class="col-sm-2 col-form-label">Pan No.</label>
-															    <div class="col-sm-10">
-															      <input type="text" class="form-control" id="ownerPan" placeholder="ownerPan" readonly>
-															    </div>
-															  </div>
-											     		</form>
-												
-									         </div>
-							 	
-									 	</div>	
-								   </div>
-								</div>	
-						</div>
-						
-					<!-- section one for personal details ends -->
-					
-					<!--  section 2 for address details begin -->
+		     		<button class="policeControlAccordian"  style="background-color:goldenrod;" >OWNER DETAILS</button>
+				<div class="accordionPanel">
+					<div class="container">
+					    <div class="row">
+						<fieldset class="for-panel">
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-horizontal">               
+                  <label class="col-xs-5 control-label">Name:</label>
+                  <p class="form-control-static">{{ pdetail_f.user_name }}</p> 
+<label class="col-xs-4 control-label">Gender:</label>
+                  <p class="form-control-static">{{ pdetail_f.gender }}</p> 				  
+
+                    <label class="col-xs-5 control-label">Father's name </label>
+                    <p class="form-control-static">{{ pdetail_f.father_name }}</p>   
+<label class="col-xs-5 control-label">Mother's name </label>
+                    <p class="form-control-static">{{ pdetail_f.mother_name }}</p>   					
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-horizontal">   
+                  <label class="col-xs-5 control-label">Phone Number: </label>
+                  <p class="form-control-static">{{ pdetail_f.mobile_no }}</p>               			  
+                  <label class="col-xs-4 control-label">Pan Number: </label>
+                  <p class="form-control-static">{{ pdetail_f.pan_no }}</p>             
+                               
+                  <label class="col-xs-4 control-label">Aadhar no:</label>
+                  <p class="form-control-static">{{ pdetail_f.aadhar_no }}</p>             
+                  <label class="col-xs-4 control-label">email id:</label>
+                  <p class="form-control-static">{{ pdetail_f.email_id }}</p>            
+                              
+              </div>
+            </div>
+          </div>
+        </fieldset>
+					    </div>
+					</div>                                </div>				 		 	
+			</div>	
+    	</div>
+       </div>	
+     </div>
+				<!-- section one for personal details ends -->
+				<!--  section 2 for address details begin -->
 					<button class="policeControlAccordian" style="background-color:khaki;">OWNER ADDRESS</button>
 					<div class="accordionPanel">
 					 	<div class="row">
@@ -110,172 +129,146 @@
 							<!-- -Adreess Details by user-->
 							<div class="col-md-6">
 							    <div class="panel panel-info">
-								<div class="panel-heading">
-						Permanent Address </div>
+								<div class="panel-heading">Permanent Address </div>
 									<div class="panel-body">
-										<form class="form-horizontal" role="form" name="permamanentAddressForm">
-						 					<div class="form-group row">
-										    	<label for="address1" class="col-sm-2 col-form-label">Address Line1</label>
-										    	<div class="col-sm-10">
-										      		<input type="text"  class="form-control" id="address1" readonly>
-										    	</div>
-											</div>
-										    <div class="form-group row">
-										     <label for="permanentcity" class="col-sm-2 col-form-label">City</label>
-										     <div class="col-sm-10">
-										       <input type="text" class="form-control" id="permanentcity" placeholder="permanentcity" readonly>
-										     </div>
-										    </div>
-									  		<div class="form-group row">
-									        	<label for="permanentState" class="col-sm-2 col-form-label">State</label>
-									    		<div class="col-sm-10">
-									      			<input type="text" class="form-control" id="permanentState" placeholder="permanentState" readonly>
-									    		</div>
-									  		</div>
-									  		<div class="form-group row">
-									    		<label for="permamnetPin" class="col-sm-2 col-form-label">Pin Code</label>
-									    			<div class="col-sm-10">
-									      				<input type="text" class="form-control" id="permamnetPin" placeholder="permamnetPin" readonly>
-									    			</div>
-									 		 </div>
-					     				</form>
-									</div>
-						    	</div>
+                                               				<fieldset class="for-panel">
+                    <div class="row">
+            <div class="col-sm-6">
+              <div class="form-horizontal">               
+                  <label class="col-xs-5 control-label">Address: </label>
+                  <p class="form-control-static">{{ permanent_f.add1 }}</p>               
+                  <label class="col-xs-5 control-label">State: </label>
+                  <p class="form-control-static">{{ permanent_f.state }}</p>               
+                  <label class="col-xs-5 control-label">District: </label>
+                  <p class="form-control-static">{{ permanent_f.district }}</p> 
+                  <label class="col-xs-5 control-label">Pin code: </label>
+                  <p class="form-control-static">{{ permanent_f.pincode }}</p>					
+              </div>
+            </div>
+        </fieldset>
+								</div>
 							</div>
+						</div>
+					
 				
 					<!-- present address -->	
 							<div class="col-md-6">
 							  <div class="panel panel-info">
-								<div class="panel-heading">
-						Present Address </div>
+								<div class="panel-heading">Present Address </div>
 								<div class="panel-body">
-									<form class="form-horizontal" role="form" name="presentAddressForm">
-						 				<div class="form-group row">
-										    <label for="presentAddress1" class="col-sm-2 col-form-label">Address Line1</label>
-										    <div class="col-sm-10">
-									    	  <input type="text"  class="form-control" id="address1" readonly>
-									    	</div>
-										</div>
-									  	<div class="form-group row">
-									    	<label for="presentcity" class="col-sm-2 col-form-label">City</label>
-									    		<div class="col-sm-10">
-									      			<input type="text" class="form-control" id="presentcity" placeholder="presentcity" readonly>
-									    		</div>
-									  	</div>
-									  	<div class="form-group row">
-									    	<label for="presentState" class="col-sm-2 col-form-label">State</label>
-									    		<div class="col-sm-10">
-									      			<input type="text" class="form-control" id="presentState" placeholder="presentState" readonly>
-									    		</div>
-									  	</div>
-									  	<div class="form-group row">
-									    	<label for="presentPin" class="col-sm-2 col-form-label">Pin Code</label>
-									    		<div class="col-sm-10">
-									      			<input type="text" class="form-control" id="presentPin" placeholder="presentPin" readonly>
-									    		</div>
-									  	</div>
-					     		</form>						
-					      </div>
-					</div>
-				</div> 		
-				 		
-         </div>
+          	<fieldset class="for-panel">
+                    <div class="row">
+            <div class="col-sm-6">
+              <div class="form-horizontal">               
+                  <label class="col-xs-5 control-label">Address:</label>
+                  <p class="form-control-static">{{ presentadd_f.add1 }}</p>               
+                  <label class="col-xs-5 control-label">state: </label>
+                  <p class="form-control-static">{{ presentadd_f.state }}</p>               
+                    <label class="col-xs-5 control-label">District: </label>
+                    <p class="form-control-static">{{ presentadd_f.district }}</p> 
+ <label class="col-xs-5 control-label">Pin code: </label>
+                    <p class="form-control-static">{{ presentadd_f.pincode }}</p>					
+              </div>
+			  
+            </div>
+        </fieldset>					
 								</div>
-							
+						    	</div>
+						</div>
+	          			</div>
+    				</div>
 					<!--  section 2 for address details ends -->	
 					
-					<!-- section 3 for vechicle details begin -->
-								<button class="policeControlAccordian" style="background-color:yellowgreen;">OWNER VECHICLE DETAILS</button>
-									<div class="accordionPanel">
-									  		<div class="row" >
-     											 <div class="col-md-12">
-       												 <div class="panel panel-info">
-													
-											        <div class="panel-body">
-												     		<form class="form-horizontal" role="form" name="personalform">
-													 			<div class="form-group row">
-																    <label for="vechicleName" class="col-sm-2 col-form-label">Vechicle Name</label>
-																    <div class="col-sm-10">
-																      <input type="text"  class="form-control" id="ownerName" placeholder="vechicleName" readonly>
-																    </div>
-																</div>
-																  <div class="form-group row">
-																    <label for="vechicleModel" class="col-sm-2 col-form-label">Vechicle Model</label>
-																    <div class="col-sm-10">
-																      <input type="text" class="form-control" id="ownerAdahr" placeholder="vechicleModel" readonly>
-																    </div>
-																  </div>
-																  <div class="form-group row">
-																    <label for="vechicleType" class="col-sm-2 col-form-label">Vechicle Type</label>
-																    <div class="col-sm-10">
-																      <input type="text" class="form-control" id="ownerContact" placeholder="vechicleType"readonly>
-																    </div>
-																  </div>
-																  <div class="form-group row">
-																    <label for="vechicleColor" class="col-sm-2 col-form-label">Vechicle color</label>
-																    <div class="col-sm-10">
-																      <input type="text" class="form-control" id="ownerPan" placeholder="vechicleColor" readonly>
-																    </div>
-																  </div>
-												     		</form>
-														
-												         </div>
-		 												</div>	
-	   												</div>
-	   
-	   
-	 										 </div> 
-									</div>
-					<!-- section 3 for vechicke details ends -->
+					<!-- section 3 for vechicle details begin -->	
+					<button class="policeControlAccordian" style="background-color:yellowgreen;">OWNER VECHICLE DETAILS</button>
+					<div class="accordionPanel">
+						<div class="row" >
+     						 <div class="col-md-12">
+       						 <div class="panel panel-info">
+					        <div class="panel-body">
+                                               <fieldset class="for-panel">
+          
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-horizontal">               
+                  <label class="col-xs-5 control-label">dealer Name:</label>
+                  <p class="form-control-static">{{ vdetails_f.dealer_name }}</p>               
+                  <label class="col-xs-5 control-label">dealer address: </label>
+                  <p class="form-control-static">{{ vdetails_f.dealer_address }}</p>               
+                    <label class="col-xs-5 control-label">Vehicle class: </label>
+                    <p class="form-control-static">{{ vdetails_f.vehicle_class }}</p> 
+ <label class="col-xs-5 control-label">Body type: </label>
+                    <p class="form-control-static">{{ vdetails_f.body_type }}</p> 
+ <label class="col-xs-5 control-label">Vehicle type: </label>
+                    <p class="form-control-static">{{ vdetails_f.vehicle_type }}</p> 	
+ <label class="col-xs-5 control-label">Company name: </label>
+                    <p class="form-control-static">{{ vdetails_f.company_name }}</p>
+					 <label class="col-xs-5 control-label">Year of Manufacture: </label>
+                    <p class="form-control-static">{{ vdetails_f.year_manufacture }}</p> 
+					 <label class="col-xs-5 control-label">Number of Cylinders: </label>
+                    <p class="form-control-static">{{ vdetails_f.numberof_cylinders }}</p> 
+					 <label class="col-xs-5 control-label">Horse power: </label>
+                    <p class="form-control-static">{{ vdetails_f.horse_power }}</p> 
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-horizontal">               
+                  <label class="col-xs-4 control-label">CC: </label>
+                  <p class="form-control-static">{{ vdetails_f.cubic_capacity }}</p>             
+                  <label class="col-xs-4 control-label">Chassis Number:</label>
+                  <p class="form-control-static">{{ vdetails_f.chassis_no }}</p>              
+                  <label class="col-xs-4 control-label">Engine number:</label>
+                  <p class="form-control-static">{{ vdetails_f.engine_number }}</p>             
+                  <label class="col-xs-4 control-label">Seating Capacity:</label>
+                  <p class="form-control-static">{{ vdetails_f.seating_capacity }}</p>            
+                  <label class="col-xs-4 control-label">Fuel Type:</label>
+                  <p class="form-control-static">{{ vdetails_f.fuel_engine }}</p>   
+ <label class="col-xs-5 control-label">unladen weight: </label>
+                    <p class="form-control-static">{{ vdetails_f.unladen_weight }}</p>
+					<label class="col-xs-5 control-label">Body Color: </label>
+                    <p class="form-control-static">{{ vdetails_f.body_color }}</p> 
+					<label class="col-xs-5 control-label">Registration No.: </label>
+                    <p class="form-control-static">{{ vdetails_f.registration_no }}</p> 				  
+              </div>
+            </div>
+          </div>
+        </fieldset>
+	
+						</div>
+	         	</div>
+        	</div>
+	</div>
+		</div>	
+	
+<!-- section 3 for vechicke details ends -->
 					
 					<!--  section 4 for police protal begin -->
-										<button class="policeControlAccordian"style="background-color:coral;">POLICE PORTAL</button>
-											<div class="accordionPanel">
-											  			<div class="row" >
-													      <div class="col-md-12">
-													        <div class="panel panel-info">
-																
-														        <div class="panel-body">
-															     		<form class="form-horizontal" role="form" name="personalform">
-																 			<div class="form-group row">
-																			    <label for="vechicleNo" class="col-sm-2 col-form-label">Vechicle Number</label>
-																			    <div class="col-sm-10">
-																			      <input type="text"  class="form-control" id="vechicleNo">
-																			    </div>
-																			</div>
-																			  <div class="form-group row">
-																			    <label for="vechicleModel" class="col-sm-2 col-form-label">Vechicle Model</label>
-																			    <div class="col-sm-10">
-																			      <input type="text" class="form-control" id="vechicleModel" placeholder="vechicleModel">
-																			    </div>
-																			  </div>
-																			  <div class="form-group row">
-																			    <label for="accidentDate" class="col-sm-2 col-form-label">Accident Date</label>
-																			    <div class="col-sm-10">
-																			      <input type="text" class="form-control" id="vechicleType" placeholder="accidentDate">
-																			    </div>
-																			  </div>
-																			  <div class="form-group row">
-																			    <label for="personInjured" class="col-sm-2 col-form-label">Person Injured</label>
-																			    <div class="col-sm-10">
-																			      <input type="text" class="form-control" id="personInjured" placeholder="personInjured">
-																			    </div>
-																			  </div>
-																			  
-																			  <div class="form-group row">
-																			    <label for="accidentLocation" class="col-sm-2 col-form-label">Location of Accident</label>
-																			    <div class="col-sm-10">
-																			      <input type="text" class="form-control" id="accidentLocation" placeholder="accidentLocation">
-																			    </div>
-																			  </div>
-																			  	<button type="button" class="btn btn-success btn-lg btn-block"> CLICK HERE TO SUBMIT DATA  </button>	
-															     		</form>
-																		
-															         </div>
-															 	</div>	
-														   </div>
-														 </div>
-											</div>
+					<button class="policeControlAccordian"style="background-color:coral;">POLICE PORTAL</button>
+					<div class="accordionPanel">
+					<div class="row" >
+					      <div class="col-md-12">
+					        <div class="panel panel-info">
+					        <div class="panel-body">
+				
+				<form class="form-horizontal" method="POST" role="form" name="personalform">
+                                                   {% csrf_token %}
+    
+                                               {% for f in police_f %}
+						<div class="form-group row">
+						    <label for="ownerName" class="col-sm-2 col-form-label">{{ f.label_tag }}</label>
+						    <div class="col-sm-10">
+                                               {% render_field f class="form-control" %}
+						    </div>
+						</div>
+                                                {% endfor %}
+
+                                                <button type="submit" class="btn btn-success btn-lg btn-block"> CLICK HERE TO SUBMIT DATA </button>
+			</form>
+			         </div>
+				 	</div>	
+					   </div>
+					 </div>
+					</div>
 		     		<!--  section 4 for police poratl ends -->
 		         </div>
 		 	
@@ -307,7 +300,7 @@
         </div>
  </div>
  
- <script>
+ <script >
 var acc = document.getElementsByClassName("policeControlAccordian");
 var i;
 
@@ -323,8 +316,8 @@ for (i = 0; i < acc.length; i++) {
     });
 }
 </script>
- <script src="js/vendor/jquery/jquery-2.1.4-min.js"></script>
+  <script src={% static "mud/js/vendor/jquery/jquery-2.1.4-min.js" %}></script>
  
- <script src="js/vendor/bootstrap/bootstrap.min.js"></script>
+ <script src={% static "mud/js/vendor/bootstrap/bootstrap.min.js" %}></script>
 </body>
 </html>
