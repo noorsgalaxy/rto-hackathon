@@ -103,7 +103,7 @@ class PollutionCenter(models.Model):
     )
     v_no = models.ForeignKey(VehicleDetails, default='')
     service_date = models.DateField()
-    next_service_data = models.DateField()
+    next_service_date = models.DateField()
     total_distance = models.IntegerField()
     pollution_status = models.CharField(max_length = 4, choices=p_status, default=1)
 

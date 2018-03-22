@@ -54,18 +54,42 @@
      <div class="row" >
       <div class="col-md-12">
         <div class="panel panel-info">
+		
 			<div class="panel-heading"> Owner details | {{ user }} </div>
 	           <div class="panel-body">
-		     		<form class="form-horizontal" method="POST" role="form" name="personalform">{% csrf_token %}
-						{% for f in pdetail_f %}
-			 			<div class="form-group row">
-						    <label for="ownerName" class="col-sm-2 col-form-label">{{ f.label_tag }}</label>
-						    <div class="col-sm-10">
-						      {% render_field f class="form-control" %}
-						    </div>
-						</div>
-						{% endfor %}
-				
+			{% if pdetail_f is not None %}			
+						<fieldset class="for-panel">
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-horizontal">               
+                  <label class="col-xs-5 control-label">Name:</label>
+                  <p class="form-control-static">{{ pdetail_f.user_name }}</p> 
+		  <label class="col-xs-5 control-label">Gender:</label>
+                  <p class="form-control-static">{{ pdetail_f.gender }}</p> 				  
+
+                    <label class="col-xs-5 control-label">Father's name: </label>
+                    <p class="form-control-static">{{ pdetail_f.father_name }}</p>   
+<label class="col-xs-5 control-label">Mother's name: </label>
+                    <p class="form-control-static">{{ pdetail_f.mother_name }}</p>   					
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-horizontal">   
+                  <label class="col-xs-5 control-label">Phone Number: </label>
+                  <p class="form-control-static">{{ pdetail_f.mobile_no }}</p>               			  
+                  <label class="col-xs-5 control-label">Pan Number: </label>
+                  <p class="form-control-static">{{ pdetail_f.pan_no }}</p>             
+                               
+                  <label class="col-xs-5 control-label">Aadhar no:</label>
+                  <p class="form-control-static">{{ pdetail_f.aadhar_no }}</p>             
+                  <label class="col-xs-5 control-label">email id:</label>
+                  <p class="form-control-static">{{ pdetail_f.email_id }}</p>            
+                              
+              </div>
+            </div>
+          </div>
+        </fieldset>	
+{% endif %} 	
 				
 		         </div>
 		 	
