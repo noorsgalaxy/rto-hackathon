@@ -109,14 +109,21 @@
 					
 						<div class="panel-body">
 								
-						 			{% for f in permanentadd_f %}
-			 			<div class="form-group row">
-						    <label for="ownerName" class="col-sm-2 col-form-label">{{ f.label_tag }}</label>
-						    <div class="col-sm-10">
-						      {% render_field f class="form-control" %}
-						    </div>
-						</div>
-						{% endfor %}
+						 			<fieldset class="for-panel">
+                    <div class="row">
+            <div class="col-sm-6">
+              <div class="form-horizontal">               
+                  <label class="col-xs-5 control-label">Address: </label>
+                  <p class="form-control-static">{{ permanent_f.add1 }}</p>               
+                  <label class="col-xs-5 control-label">State: </label>
+                  <p class="form-control-static">{{ permanent_f.state }}</p>               
+                  <label class="col-xs-5 control-label">District: </label>
+                  <p class="form-control-static">{{ permanent_f.district }}</p> 
+                  <label class="col-xs-5 control-label">Pin code: </label>
+                  <p class="form-control-static">{{ permanent_f.pincode }}</p>					
+              </div>
+            </div>
+        </fieldset>
 					     		
 						</div>
 					</div>
@@ -128,6 +135,8 @@
 					<div class="panel-heading"> Present Address</div>
 					
 						<div class="panel-body">
+<form class="form-horizontal" method="POST" role="form" name="personalform">
+{% csrf_token %}
 								
 						 			{% for f in presentadd_f %}
 			 			<div class="form-group row">
