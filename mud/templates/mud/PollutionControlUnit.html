@@ -69,33 +69,32 @@
 									        <div class="panel panel-info">
 												
 										           <div class="panel-body">
-		<fieldset class="for-panel">
-          <legend>Contact Info</legend>
+						<fieldset class="for-panel">
           <div class="row">
             <div class="col-sm-6">
               <div class="form-horizontal">               
-                  <label class="col-xs-5 control-label">Contact Name:</label>
-                  <p class="form-control-static">{{user_name}}</p> 
+                  <label class="col-xs-5 control-label">Name:</label>
+                  <p class="form-control-static">{{ pdetail_f.user_name }}</p> 
 <label class="col-xs-4 control-label">Gender:</label>
-                  <p class="form-control-static">{{gender}}</p> 				  
+                  <p class="form-control-static">{{ pdetail_f.gender }}</p> 				  
 
                     <label class="col-xs-5 control-label">Father's name </label>
-                    <p class="form-control-static">{{father_name}}</p>   
+                    <p class="form-control-static">{{ pdetail_f.father_name }}</p>   
 <label class="col-xs-5 control-label">Mother's name </label>
-                    <p class="form-control-static">{{mother_name}}</p>   					
+                    <p class="form-control-static">{{ pdetail_f.mother_name }}</p>   					
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-horizontal">   
                   <label class="col-xs-5 control-label">Phone Number: </label>
-                  <p class="form-control-static">{{mobile_no}}</p>               			  
+                  <p class="form-control-static">{{ pdetail_f.mobile_no }}</p>               			  
                   <label class="col-xs-4 control-label">Pan Number: </label>
-                  <p class="form-control-static">{{pan_no}}</p>             
+                  <p class="form-control-static">{{ pdetail_f.pan_no }}</p>             
                                
                   <label class="col-xs-4 control-label">Aadhar no:</label>
-                  <p class="form-control-static">{{aadhar_no}}</p>             
+                  <p class="form-control-static">{{ pdetail_f.aadhar_no }}</p>             
                   <label class="col-xs-4 control-label">email id:</label>
-                  <p class="form-control-static">{{email_id}}</p>            
+                  <p class="form-control-static">{{ pdetail_f.email_id }}</p>            
                               
               </div>
             </div>
@@ -121,44 +120,50 @@
 								<div class="panel-heading">
 						Permanent Address </div>
 									<div class="panel-body">
-					                            				<fieldset class="for-panel">
-				<legend>Permanent Address</legend>
+                                            				<fieldset class="for-panel">
+                    <div class="row">
+            <div class="col-sm-6">
+              <div class="form-horizontal">               
+                  <label class="col-xs-5 control-label">Address: </label>
+                  <p class="form-control-static">{{ permanent_f.add1 }}</p>               
+                  <label class="col-xs-5 control-label">State: </label>
+                  <p class="form-control-static">{{ permanent_f.state }}</p>               
+                  <label class="col-xs-5 control-label">District: </label>
+                  <p class="form-control-static">{{ permanent_f.district }}</p> 
+                  <label class="col-xs-5 control-label">Pin code: </label>
+                  <p class="form-control-static">{{ permanent_f.pincode }}</p>					
+              </div>
+            </div>
+        </fieldset>
+</div>
+							</div>
+						</div>
+
+			<div class="col-md-6">
+							  <div class="panel panel-info">
+								<div class="panel-heading">Present Address </div>
+								<div class="panel-body">
+          	<fieldset class="for-panel">
                     <div class="row">
             <div class="col-sm-6">
               <div class="form-horizontal">               
                   <label class="col-xs-5 control-label">Address:</label>
-                  <p class="form-control-static">{{add1}}</p>               
+                  <p class="form-control-static">{{ presentadd_f.add1 }}</p>               
                   <label class="col-xs-5 control-label">state: </label>
-                  <p class="form-control-static">{{state}}</p>               
+                  <p class="form-control-static">{{ presentadd_f.state }}</p>               
                     <label class="col-xs-5 control-label">District: </label>
-                    <p class="form-control-static">{{District}}</p> 
+                    <p class="form-control-static">{{ presentadd_f.district }}</p> 
  <label class="col-xs-5 control-label">Pin code: </label>
-                    <p class="form-control-static">{{pincode}}</p>					
+                    <p class="form-control-static">{{ presentadd_f.pincode }}</p>					
               </div>
 			  
             </div>
-			<legend>Present Address</legend>
-            <div class="col-sm-6">
-              <div class="form-horizontal">               
-                 <label class="col-xs-5 control-label">Address:</label>
-                  <p class="form-control-static">{{add1}}</p>               
-                  <label class="col-xs-5 control-label">state: </label>
-                  <p class="form-control-static">{{state}}</p>               
-                    <label class="col-xs-5 control-label">District: </label>
-                    <p class="form-control-static">{{District}}</p> 
- <label class="col-xs-5 control-label">Pin code: </label>
-                    <p class="form-control-static">{{pincode}}</p>	          
-              </div>
-            </div>
-          </div>
         </fieldset>					
-					      </div>
-					</div>
-				</div> 		
-				 		
-         </div>
 								</div>
-							
+						    	</div>
+						</div>
+	          			</div>
+    				</div>				
 					<!--  section 2 for address details ends -->	
 					
 					<!-- section 3 for vechicle details begin -->
@@ -170,48 +175,49 @@
 													
 											        <div class="panel-body">
 					                               <fieldset class="for-panel">
+          <fieldset class="for-panel">
           
           <div class="row">
             <div class="col-sm-6">
               <div class="form-horizontal">               
                   <label class="col-xs-5 control-label">dealer Name:</label>
-                  <p class="form-control-static">{{dealer_name}}</p>               
+                  <p class="form-control-static">{{ vdetails_f.dealer_name }}</p>               
                   <label class="col-xs-5 control-label">dealer address: </label>
-                  <p class="form-control-static">{{dealer_address}}</p>               
+                  <p class="form-control-static">{{ vdetails_f.dealer_address }}</p>               
                     <label class="col-xs-5 control-label">Vehicle class: </label>
-                    <p class="form-control-static">{{vehicle_class}}</p> 
+                    <p class="form-control-static">{{ vdetails_f.vehicle_class }}</p> 
  <label class="col-xs-5 control-label">Body type: </label>
-                    <p class="form-control-static">{{body_type}}</p> 
+                    <p class="form-control-static">{{ vdetails_f.body_type }}</p> 
  <label class="col-xs-5 control-label">Vehicle type: </label>
-                    <p class="form-control-static">{{vehicle_type}}</p> 	
+                    <p class="form-control-static">{{ vdetails_f.vehicle_type }}</p> 	
  <label class="col-xs-5 control-label">Company name: </label>
-                    <p class="form-control-static">{{company_name}}</p>
+                    <p class="form-control-static">{{ vdetails_f.company_name }}</p>
 					 <label class="col-xs-5 control-label">Year of Manufacture: </label>
-                    <p class="form-control-static">{{year_manufacture}}</p> 
+                    <p class="form-control-static">{{ vdetails_f.year_manufacture }}</p> 
 					 <label class="col-xs-5 control-label">Number of Cylinders: </label>
-                    <p class="form-control-static">{{numberof_cylinders}}</p> 
+                    <p class="form-control-static">{{ vdetails_f.numberof_cylinders }}</p> 
 					 <label class="col-xs-5 control-label">Horse power: </label>
-                    <p class="form-control-static">{{horse_power}}</p> 
+                    <p class="form-control-static">{{ vdetails_f.horse_power }}</p> 
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-horizontal">               
                   <label class="col-xs-4 control-label">CC: </label>
-                  <p class="form-control-static">{{cubic_capacity}}</p>             
+                  <p class="form-control-static">{{ vdetails_f.cubic_capacity }}</p>             
                   <label class="col-xs-4 control-label">Chassis Number:</label>
-                  <p class="form-control-static">{{chassis_no}}</p>              
+                  <p class="form-control-static">{{ vdetails_f.chassis_no }}</p>              
                   <label class="col-xs-4 control-label">Engine number:</label>
-                  <p class="form-control-static">{{engine_number}}</p>             
+                  <p class="form-control-static">{{ vdetails_f.engine_number }}</p>             
                   <label class="col-xs-4 control-label">Seating Capacity:</label>
-                  <p class="form-control-static">{{seating_capacity}}</p>            
+                  <p class="form-control-static">{{ vdetails_f.seating_capacity }}</p>            
                   <label class="col-xs-4 control-label">Fuel Type:</label>
-                  <p class="form-control-static">{{fuel_engine}}</p>   
+                  <p class="form-control-static">{{ vdetails_f.fuel_engine }}</p>   
  <label class="col-xs-5 control-label">unladen weight: </label>
-                    <p class="form-control-static">{{unladen_weight}}</p>
+                    <p class="form-control-static">{{ vdetails_f.unladen_weight }}</p>
 					<label class="col-xs-5 control-label">Body Color: </label>
-                    <p class="form-control-static">{{body_color}}</p> 
+                    <p class="form-control-static">{{ vdetails_f.body_color }}</p> 
 					<label class="col-xs-5 control-label">Registration No.: </label>
-                    <p class="form-control-static">{{registration_no}}</p> 				  
+                    <p class="form-control-static">{{ vdetails_f.registration_no }}</p> 				  
               </div>
             </div>
           </div>
@@ -235,40 +241,19 @@
 													        <div class="panel panel-info">
 																
 														        <div class="panel-body">
-															     		<form class="form-horizontal" role="form" name="personalform">
-																 			<div class="form-group row">
-																			    <label for="vechicleNo" class="col-sm-2 col-form-label">Vechicle Number</label>
-																			    <div class="col-sm-10">
-																			      <input type="text"  class="form-control" id="vechicleNo">
-																			    </div>
-																			</div>
-																			  <div class="form-group row">
-																			    <label for="vechicleModel" class="col-sm-2 col-form-label">Vechicle Model</label>
-																			    <div class="col-sm-10">
-																			      <input type="text" class="form-control" id="vechicleModel" placeholder="vechicleModel">
-																			    </div>
-																			  </div>
-																			  <div class="form-group row">
-																			    <label for="serviceDate" class="col-sm-2 col-form-label">Service Date</label>
-																			    <div class="col-sm-10">
-																			      <input type="text" class="form-control" id="serviceDate" placeholder="serviceDate">
-																			    </div>
-																			  </div>
-																			  <div class="form-group row">
-																			    <label for="nextServiceDate" class="col-sm-2 col-form-label">Next Service Date</label>
-																			    <div class="col-sm-10">
-																			      <input type="text" class="form-control" id="nextServiceDate" placeholder="nextServiceDate" readonly>
-																			    </div>
-																			  </div>
-																			  
-																			  <div class="form-group row">
-																			    <label for="fuelConsumption" class="col-sm-2 col-form-label">Fuel consumption in 3 months</label>
-																			    <div class="col-sm-10">
-																			      <input type="text" class="form-control" id="fuelConsumption" placeholder="fuelConsumption">
-																			    </div>
-																			  </div>
-																			  	<button type="button" class="btn btn-success btn-lg btn-block"> CLICK HERE TO SUBMIT DATA  </button>	
-															     		</form>
+															     		<form class="form-horizontal" role="form" name="personalform"> {% csrf_token %}
+    
+                                               {% for f in pollution_f %}
+						<div class="form-group row">
+						    <label for="ownerName" class="col-sm-2 col-form-label">{{ f.label_tag }}</label>
+						    <div class="col-sm-10">
+                                               {% render_field f class="form-control" %}
+						    </div>
+						</div>
+                                                {% endfor %}
+
+                                                <button type="submit" class="btn btn-success btn-lg btn-block"> CLICK HERE TO SUBMIT DATA </button>
+			</form>
 																		
 															         </div>
 															 	</div>	

@@ -1,10 +1,50 @@
+<!-- entry page of website -->
+
 <!DOCTYPE html>
+{%load staticfiles %}
+{% load widget_tweaks %}
 <html>
 <head>
 <meta charset="ISO-8859-1">
-	  <link rel="stylesheet" href="css/vendor/bootstrap/bootstrap.min.css">
-  	  <link rel="stylesheet" href="css/main.css">
+	  <link rel="stylesheet" href={% static "mud/css/vendor/bootstrap/bootstrap.min.css" %}>
+  	  <link rel="stylesheet" href={% static "mud/css/main.css" %}>
 <title>WELCOME</title>
+
+<style>
+#main_content{
+	background: url({% static "mud/res/video/bg-gif.gif" %});
+	background-size: cover;
+	height:auto;
+	width:100%;
+	mrgin-top:-1em;
+	margin-right:1%;
+	position:relative;
+
+}
+
+#li{
+    float: left;
+    width: 33%;
+    padding: 24px;
+    height: 100px;
+    font-size: 15px;
+    color: yellow;
+    line-height: 1.4;
+    text-align: center;
+    background-color: #3281b1;
+    border: 1px solid #fff;
+}
+
+#notice_heading{
+	 height: 30px;
+    color: black;
+    font-size: 20px;
+    background: yellow;
+    padding: 0;
+    text-align: center;
+}
+</style>
+
 </head>
 <body>
 <div class="row">
@@ -26,7 +66,7 @@
                         <div class="inline-section vertical-right-divider">
                             <div id="logo">
                                 <a href="https://parivahan.gov.in/parivahan" title="Home">
-                                    <img src="HTTPS://parivahan.gov.in/parivahan/sites/default/files/logo-parivahan-sewa-en.png" class="emblem-resize"></a>
+                                    <img src={% static "mud/res/img/logo-parivahan-sewa-en.png"%} class="emblem-resize"></a>
                             </div>
 
                         </div>
@@ -61,47 +101,131 @@
 	<!-- main content row-->
 	
 	<div class="row" id="main">
-	  <div class="col-md-12" id="main_content_row">
-		<div class="col-md-1"></div>
-		<div class="col-md-3" >
-			 <div class="panel panel-default">
-        		<div class="panel-heading">GENERAL INSTRUCTIONS</div>
+	  <div class="col-md-12" id="main_content">
+	   <div class="row" style="margin-top:7%;margin-left:3%;opacity:.85;">
+		
+		<div class="col-md-7" >
+			<div class="">
+        		
         		<div class="panel-body">
-        			<li>ABCGFD</li>
-        			<li>ASDFV</li>
-        			<li>SCAFE</li>
-        			<li>VWSEF</li>
+        			<!-- row 1 -->
+        			<div class="row">
+        				<div class="col-md-12">
+        					<div class="row">
+        						<div class="col-md-4" id="li">
+        							
+        							     <span class="glyphicon glyphicon-asterisk" aria-hidden="true" style="
+    										font-size: 24px; margin-left:10%;"	>
+    									</span>
+        								 <span class="glyphicon-class" style="display: block;text-align: center;
+    										word-wrap: break-word;">Safety Rules
+    									</span> 
+        						</div>
+        						<div class="col-md-4"  id="li">
+        							<span class="glyphicon glyphicon-plus" aria-hidden="true" style="font-size: 24px; margin-left:10%;"	>
+        							</span>
+        							<span class="glyphicon-class" style="display: block; text-align: center;
+   										 word-wrap: break-word;">Safety Rules
+   									</span> 
+        						</div>
+        						<div class="col-md-4" id="li">
+        							<span class="glyphicon glyphicon-th-large" aria-hidden="true" style="font-size: 24px; margin-left:10%;"	>
+        							</span>
+        							<span class="glyphicon-class" style="display: block; text-align: center;
+   										 word-wrap: break-word;">Safety Rules
+   									</span> 
+        						</div>
+        					</div>
+        				</div>
+        			</div>	
+        			<!-- row 2 -->
+        			<div class="row">
+        				<div class="col-md-12">
+        					<div class="row">
+        						<div class="col-md-4" id="li">
+        							
+        							     <span class="glyphicon glyphicon-book" aria-hidden="true" style="
+    										font-size: 24px; margin-left:10%;"	>
+    									</span>
+        								 <span class="glyphicon-class" style="display: block;text-align: center;
+    										word-wrap: break-word;">Safety Rules
+    									</span> 
+        						</div>
+        						<div class="col-md-4"  id="li">
+        							<span class="glyphicon glyphicon-picture" aria-hidden="true" style="font-size: 24px; margin-left:10%;"	>
+        							</span>
+        							<span class="glyphicon-class" style="display: block; text-align: center;
+   										 word-wrap: break-word;">Safety Rules
+   									</span> 
+        						</div>
+        						<div class="col-md-4" id="li">
+        							<span class="glyphicon glyphicon-check" aria-hidden="true" style="font-size: 24px; margin-left:10%;"	>
+        							</span>
+        							<span class="glyphicon-class" style="display: block; text-align: center;
+   										 word-wrap: break-word;">Safety Rules
+   									</span> 
+        						</div>
+        					</div>
+        				</div>
+        			</div>
         			
-        
+        			<!-- row 3 -->
+        			<div class="row">
+        				<div class="col-md-12">
+        					<div class="row">
+        						<div class="col-md-4" id="li">
+        							
+        							     <span class="glyphicon glyphicon-phone-alt" aria-hidden="true" style="
+    										font-size: 24px; margin-left:10%;"	>
+    									</span>
+        								 <span class="glyphicon-class" style="display: block;text-align: center;
+    										word-wrap: break-word;">Safety Rules
+    									</span> 
+        						</div>
+        						<div class="col-md-4"  id="li">
+        							<span class="glyphicon glyphicon-flash" aria-hidden="true" style="font-size: 24px; margin-left:10%;"	>
+        							</span>
+        							<span class="glyphicon-class" style="display: block; text-align: center;
+   										 word-wrap: break-word;">Safety Rules
+   									</span> 
+        						</div>
+        						<div class="col-md-4" id="li">
+        							<span class="glyphicon glyphicon-ban-circle" aria-hidden="true" style="font-size: 24px; margin-left:10%;"	>
+        							</span>
+        							<span class="glyphicon-class" style="display: block; text-align: center;
+   										 word-wrap: break-word;">Safety Rules
+   									</span> 
+        						</div>
+        					</div>
+        				</div>
+        			</div>
         		</div>
-    		</div>
-		</div>
-		<div class="col-md-4" >
-			<div class="panel panel-default">
-        		<div class="panel-heading">SERVICES</div>
-        		<div class="panel-body">
-        			<li>NEW VEHICLE REGISTRATION</li>
-        			<li>RC TRANSFER</li>
-        			<li>TAX CALCULATOR</li>
-        			<li>USER MANUAL</li>
-        			<li>PERMIT FEE</li>
-        			<li>PERMIT RULES</li>
-        			<li>NEW VEHICLE REGISTRATION</li>
-        			<li>RC TRANSFER</li>
-        			<li>TAX CALCULATOR</li>
-        			<li>USER MANUAL</li>
-        			<li>PERMIT FEE</li>
-        			<li>PERMIT RULES</li>
-        		</div>
-    		</div>
-		</div>
-		<div class="col-md-3" >
-				<div class="panel panel-default">
-        		<div class="panel-heading">NOTICES</div>
-        		<div class="panel-body">This page is temporarily disabled by the site administrator for some reason.<br> <a href="#">Click here</a> to enable the page.</div>
     		</div>
 		</div>
 		<div class="col-md-1"></div>
+		<div class="col-md-3" >
+				<div class="panel panel-warning">
+        		<div class="panel-heading" id="notice_heading">Important Notices</div>
+        		<div class="panel-body" style=" color: wheat; background-color: #3281b1; ">
+        			
+        				<marquee direction="up" scrollamount=2>
+        				<ol>
+		        			<li>ROAD MEASURES MUST BE TAKEN SERIUSLY</li>
+		        			<li>NEW RUES HAVE BEEN INTRODUCED IN SAFETY RULE BOOK</li>
+		        			<li>VECHICLE REGISTRATION HAS BECOME MORE EASY</li>
+		        			<li>MAJOR DOCUMENTS ONE MUST HAVE </li>
+		        					<ul><li>ADAHR CARD</li><li>VOTER ID</li></ul>
+		        			<li>USER MUST LOGIN TO ENJOY THE BENIFITS OF NEW CENTRALIZED SYETEM</li>
+	        			
+        			</ol>
+        			</marquee>
+        		
+        		</div>
+    		</div>
+		</div>
+		
+		</div>
+		
 		</div>
 	</div>
 	
@@ -126,9 +250,10 @@
             
         </div>
 	
+	
 </div>
- <script src="js/vendor/jquery/jquery-2.1.4-min.js"></script>
+ <script src={% static "mud/js/vendor/jquery/jquery-2.1.4-min.js" %}></script>
  
- <script src="js/vendor/bootstrap/bootstrap.min.js"></script>
+ <script src={% static "mud/js/vendor/bootstrap/bootstrap.min.js" %}></script>
 </body>
 </html>

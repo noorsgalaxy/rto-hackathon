@@ -12,122 +12,6 @@
 </head>
 
 <style>
-/* Profile sidebar */
-.profile-sidebar {
-  padding: 20px 0 10px 0;
-  
-}
-
-.profile-userpic img {
-  float: none;
-  margin: 0 auto;
-  width: 50%;
-  height: 50%;
-  -webkit-border-radius: 50% !important;
-  -moz-border-radius: 50% !important;
-  border-radius: 50% !important;
-}
-
-fieldset.for-panel {
-    background-color: #fcfcfc;
-    border: 1px solid #999;
-    border-radius: 4px; 
-    padding:15px 10px;
-    background-color: #d9edf7;
-    border-color: #bce8f1;
-    background-color: #f9fdfd;
-    margin-bottom:12px;
-}
-
-
-
-.profile-usertitle {
-  text-align: center;
-  margin-top: 20px;
-}
-
-.profile-usertitle-name {
-  color: #5a7391;
-  font-size: 16px;
-  font-weight: 600;
-  margin-bottom: 7px;
-}
-
-.profile-usertitle-email {
- 
-  color: #5b9bd1;
-  font-size: 12px;
-  font-weight: 600;
-  margin-bottom: 15px;
-}
-
-.profile-userbuttons {
-  text-align: center;
-  margin-top: 10px;
-}
-
-.profile-userbuttons .btn {
-  text-transform: uppercase;
-  font-size: 11px;
-  font-weight: 600;
-  padding: 6px 15px;
-  margin-right: 5px;
-}
-
-.profile-userbuttons .btn:last-child {
-  margin-right: 0px;
-}
-    
-.profile-usermenu {
-  margin-top: 30px;
-}
-
-.profile_nav > li{
-	padding:8px;
-    margin-left: 10%;
-    /* border: 2px solid; */
-    /* margin: 10%; */
-    /* margin-right: 10%; */
-    font-size: 14px;
-}
-
-.profile-usermenu ul li:last-child {
-  border-bottom: none;
-}
-
-.profile-usermenu ul li a {
-  color: #93a3b5;
-  font-size: 14px;
-  font-weight: 400;
-}
-
-.profile-usermenu ul li a i {
-  margin-right: 8px;
-  font-size: 14px;
-}
-
-.profile-usermenu ul li a:hover {
-  background-color: #fafcfd;
-  color: #5b9bd1;
-}
-
-.profile-usermenu ul li.active {
-  border-bottom: none;
-}
-
-.profile-usermenu ul li.active a {
-  color: #5b9bd1;
-  background-color: #f6f9fb;
-  border-left: 2px solid #5b9bd1;
-  margin-left: -2px;
-}
-
-/* Profile Content */
-.profile-content {
-  padding: 20px;
-  background: #fff;
-  min-height: 460px;
-}
 </style>
 
 <body>
@@ -204,7 +88,7 @@ fieldset.for-panel {
 											Basic details </a>
 										</li>
 										<li>
-											<a href="{% url 'get_info' %}">
+											<a href="{% url 'reg' purpose='edit' %}">
 											<i class="glyphicon glyphicon-list"></i>
 											Vechicle Registration </a>
 										</li>
@@ -268,12 +152,18 @@ fieldset.for-panel {
                   <label class="col-xs-5 control-label">Body Color: </label>
                   <p class="form-control-static">{{ vdetails_f.body_color }}</p>               
                    <label class="col-xs-5 control-label">Registration Number: </label>
-                   <p class="form-control-static">{{ vdetails_f.registration_no }}</p>                           
+			{% if vdetails_f.registration is not None %}
+                   <p class="form-control-static">{{ vdetails_f.registration_no }}</p>
+			{% else %}  
+			<p class="form-control-static">Still not Registered</p>
+			{% endif %}                         
               </div>
             </div>
 
           </div>
+
         </fieldset>
+
 												     			
 										         	</div>
 		 									</div>
@@ -288,17 +178,20 @@ fieldset.for-panel {
           <div class="row">
             <div class="col-sm-6">
               <div class="form-horizontal">               
-                  <label class="col-xs-5 control-label">Last Service Date:</label>
-                  <p class="form-control-static">{{ pollution_f.service_date }}</p>               
-                  <label class="col-xs-5 control-label">Next Service Date: </label>
-                  <p class="form-control-static">{{ pollution_f.next_service_data }}</p>               
-                    <label class="col-xs-5 control-label">Pollution Status </label>
-                    <p class="form-control-static">{{ pollution_f.pollution_status }}</p>                           
+                  <label class="col-xs-5 control-label">Address: </label>
+                  <p class="form-control-static">{{ present_f.add1 }}</p>               
+                  <label class="col-xs-5 control-label">State: </label>
+                  <p class="form-control-static">{{ present_f.state }}</p>               
+                    <label class="col-xs-5 control-label">District: </label>
+                    <p class="form-control-static">{{ present_f.district }}</p> 
+		<label class="col-xs-5 control-label">Pincode: </label>
+                    <p class="form-control-static">{{ present_f.pincode }}</p>                          
               </div>
             </div>
             
           </div>
         </fieldset>
+<a href="{% url 'reg' purpose='edit'%}"><button type="button" class="btn btn-warning ">Edit</button>
 																		
 															         </div>
 															 	</div>	
