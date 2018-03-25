@@ -8,6 +8,12 @@ from .forms import *
 from django.shortcuts import get_list_or_404, get_object_or_404
 from django.contrib.auth.decorators import login_required
 
+def get_or_none(m,**kwargs):
+    try:
+        return m.objects.get(**kwargs)
+    except:
+        return None
+
 '''
 @login_required(login_url = '/accounts/login/')
 def get_info(request):
@@ -38,21 +44,25 @@ def get_info(request):
 
 @login_required(login_url = '/accounts/login/')
 def reg(request,purpose):
-    if purpose=='new':
-        try:
-            pdetail_i = get_object_or_404(PersonalDetail, user = request.user)
-            permanentadd_i = get_object_or_404(PermanentAdd, user_personal = pdetail_i.aadhar_no)
-        except:
-            pdetail_i = None
-            permanentadd_i = None
-
-            return HttpResponseRedirect('/mud/pdetails')
-    if purpose=='edit':
-        pdetail_i = get_object_or_404(PersonalDetail, user = request.user)
-        permanentadd_i = PermanentAdd.objects.get(user_personal = pdetail_i)
+    vdetails_i = None
+    presentadd_i = None
+    if request.method == 'GET':
+        if purpose=='new':
+            pdetail_i = get_or_none(PersonalDetail, user = request.user)
+            permanentadd_i = get_or_none(PermanentAdd, user_personal = pdetail_i.aadhar_no)
+            if not pdetail_i:
+                return HttpResponseRedirect('/mud/pdetails')
+        else:
+            pdetail_i = get_or_none(PersonalDetail, user = request.user)
+            permanentadd_i = get_or_none(PermanentAdd,user_personal = pdetail_i)
+            vdetails_i = get_or_none(VehicleDetails, chassis_no=int(purpose))
+            presentadd_i = get_or_none(PresentAdd, vehicle = vdetails_i)
     if request.method == 'POST':
-        presentadd = PresentAddForm(request.POST)
-        vdetails = VehicleDetailsForm(request.POST)
+        pdetail_i = get_or_none(PersonalDetail, user = request.user)
+        vdetails_i = get_or_none(VehicleDetails, chassis_no=int(purpose))
+        presentadd_i = get_or_none(PresentAdd, vehicle = vdetails_i)
+        presentadd = PresentAddForm(request.POST,instance=presentadd_i)
+        vdetails = VehicleDetailsForm(request.POST,instance=vdetails_i)
         if all([presentadd.is_valid(), vdetails.is_valid()]):
             vdetails = vdetails.save(commit=False)
             vdetails.owner = pdetail_i
@@ -67,8 +77,8 @@ def reg(request,purpose):
 
     pdetail_f = pdetail_i
     permanent_f = permanentadd_i
-    vdetails_f = VehicleDetailsForm()
-    presentadd_f = PresentAddForm()
+    vdetails_f = VehicleDetailsForm(instance=vdetails_i)
+    presentadd_f = PresentAddForm(instance=presentadd_i)
 
     return render(request, 'mud/NewVehicleRegistrationPage.html', {'pdetail_f': pdetail_f,'user': request.user,'presentadd_f': presentadd_f,'vdetails_f': vdetails_f,'permanent_f':permanent_f})
 
@@ -158,15 +168,8 @@ def pollution_check(request,v_no):
 
 @login_required(login_url = '/accounts/login/')
 def user_dashboard(request):
-    try:
-        puser_i = PersonalDetail.objects.get(user = request.user)
-        owner_i = VehicleDetails.objects.filter(owner = puser_i.aadhar_no)
-        vno_i = [VehicleDetails.objects.get(registration_no =i.registration_no) for i in owner_i]
-    except:
-        puser_i = None
-        vno_i = None
-    puser_f =  puser_i
-    vno_f = vno_i
+    puser_f = get_or_none(PersonalDetail,user = request.user)
+    vno_f = VehicleDetails.objects.filter(owner = puser_f.aadhar_no)
     return render(request, 'mud/UserDashboard.html', {'puser_f':puser_f,'vno_f':vno_f,'user_name':request.user})
 
 
@@ -181,5 +184,4 @@ def vehicle_details(request,cs_no):
 
 
 def main_page(request):
-    pass
     return render(request, 'mud/MainPage.html')
