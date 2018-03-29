@@ -185,3 +185,11 @@ def vehicle_details(request,cs_no):
 
 def main_page(request):
     return render(request, 'mud/MainPage.html')
+
+def police_dashboard(request):
+    vno = request.GET.get("vechicle-number") 
+    if not vno:
+
+        return render(request, 'mud/PoliceDashboard.html')
+    else:
+        return HttpResponseRedirect('/mud/police/'+str(vno))

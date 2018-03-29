@@ -1,0 +1,243 @@
+<!-- search vechicle for police , PUC after login with there username and pass -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+	  <link rel="stylesheet" href="css/vendor/bootstrap/bootstrap.min.css">
+  	  <link rel="stylesheet" href="css/main.css">
+  	  <link rel="stylesheet" href="css/vendor/graph/morris.css">
+  	  <link rel="stylesheet" href="css/vendor/graph/prettify.min.css">
+<title>MINISTRY DASHBOARD</title>
+</head>
+<style>
+#row_panel_ministry{
+	height: 110px;
+    border-radius: 6px;
+    font-family: sans-serif;
+    font-stretch: expanded;
+}
+</style>
+<body>
+<div class="row">
+	
+	
+	<!-- slogan row begin -->
+	<div class="row">
+		 <div class="container">
+              <div class="inline-section vertical-right-divider">
+                  <div id="logo">
+                       <a href="https://parivahan.gov.in/parivahan" title="Home">
+                       <img src="res/img/logo-parivahan-sewa-en.png" class="emblem-resize"></a>
+                  </div>
+              </div>
+   
+              <div class="inline-section fix-width">
+                  <div class="govt-india">
+                       Government of India 
+                  </div>
+	              <div class="slogan-name">
+	                   Ministry of Urban Development &amp; Highways       
+	              </div>
+              </div>
+          </div>
+	</div>
+	
+	<!-- navigation menu section-->
+	<div class="row" >
+	    <nav class="navbar" id="navigation">
+		  <div class="container-fluid">
+		     <ul class="nav navbar-nav">
+			      <li class="active" ><a href="#" id="text">VISION</a></li>
+			      <li><a href="#" id="text">ABOUT US</a></li>
+			      <li><a href="#" id="text">FAQ</a></li>
+			      <li><a href="#" id="text">CONTACT US</a></li>
+			      <li class="pull-right" style="margin-right: -171%;" ><a href="#" id="text" >Log Out</a></li>
+		    </ul>
+		  </div>
+        </nav>
+	 </div>
+	<!-- navigation ends -->
+	
+	<!-- main content row-->
+	
+	<!-- left panel of main body -->
+	
+	  		<div class="row">
+	  			<div class="container" style="width:100%;background: #08102d;">
+	  				<!-- row of user navigation bar -->
+				    <div class="col-md-2" >
+						<div class="row profile">
+							<div class="profile-sidebar">
+								<!-- SIDEBAR USERPIC -->
+								<div class="profile-userpic">
+									<img src="res/img/login-user.png" class="img-responsive" alt="">
+								</div>
+								<!-- END SIDEBAR USERPIC -->
+								<!-- SIDEBAR USER TITLE -->
+								<div class="profile-usertitle">
+									<div class="profile-usertitle-name">
+										MINISTRY DASHBOARD
+									</div>
+									<div class="profile-usertitle-email">
+										mudbud2.0@mudbud.com
+									</div>
+								</div>
+								<!-- END SIDEBAR USER TITLE -->
+								<!-- SIDEBAR MENU -->
+								<div class="profile-usermenu">
+									<div class="profile_nav">
+										<li >
+											<a href="#">
+											<i class="glyphicon glyphicon-list"></i>
+											RTO State Wise </a>
+										</li>
+										
+									</div>
+								</div>
+								<!-- END MENU -->
+							</div>
+						</div>
+					</div>
+					
+					<!-- row for right panel container  -->
+					<div class="col-md-10" style="background-color:white;">
+							
+								<!-- right panel main body row -->
+								<div class="row" style="margin:0%">
+										<!-- first row for search box -->
+										<div class="row">
+												<div class ="col-md-12" >
+													<div class="col-md-12"style="background-color:blue;height:20px;margin-bottom:1%;"></div>
+												</div>
+										</div>
+										
+										<!-- second row for card view -->
+										<div class="row" style="margin-bottom:1%;">
+											
+												<div class="col-md-12">
+													<div class="col-md-3">
+														<div >
+															<div class="panel-body" id= "row_panel_ministry"style="background-color:#909008;">
+																<h4>Registered vechicle</h4>
+																	<h5>123456</h5>
+															</div>
+														</div>	
+													</div>
+													<div class="col-md-3">
+															<div >
+															<div class="panel-body"id= "row_panel_ministry" style="background-color:yellowgreen;">
+																<h4>Permits</h4>
+																	<h5>12345</h5>
+															</div>
+														</div>	
+													</div>
+													<div class="col-md-3">
+															<div >
+															<div class="panel-body" id= "row_panel_ministry"style="background-color:#ea8906;">
+																<h4>Fuel Consumption</h4>
+																<h5>PETROL:12345</h5>
+																<h5>DIESEL:12345</h5>
+															</div>
+														</div>	
+													</div>
+													<div class="col-md-3">
+															<div >
+															<div class="panel-body"id= "row_panel_ministry" style="background-color:#dec704;">
+																<h4>No of accidents</h4>
+																<h5>1234</h5>
+															</div>
+														</div>	
+													</div>
+												</div>
+											
+										</div>
+										
+										<!-- third row for bar charts -->
+										<div class="row" >
+											<div class="col-md-6">
+												<div class="panel panel-primary">
+													<div class="panel-heading">VECHICLE REGISTERED</div>
+													<div class="panel-body">
+														<div id="vechiclesRegistered" style="height: 300px; width: 100%;"></div>
+													</div>
+												</div>
+											</div>
+											<div class="col-md-6">
+												<div class="panel panel-primary">
+													<div class="panel-heading">ACCIDENT HAPPENS</div>
+													<div class="panel-body">
+														<div id="vechiclesAccident" style="height: 300px; width: 100%;"></div>
+													</div>
+												</div>
+											</div>
+											
+										</div>
+										
+										<!-- fourth row for pie & bar charts -->
+										<div class="row">
+											<div class="col-md-4">
+													<div class="panel panel-primary">
+													<div class="panel-heading">FUEL TYPE</div>
+													<div class="panel-body">
+														<h5>Values in thousands liter</h5>
+														<div id="fuelConsumption" style="height: 300px; width: 100%;"></div>
+													</div>
+												</div>
+											</div>
+											<div class="col-md-4">
+												<div class="panel panel-primary">
+													<div class="panel-heading">PERMIT</div>
+													<div class="panel-body">
+														<div id="" style="height: 300px; width: 100%;"></div>
+													</div>
+												</div>
+											</div>
+											<div class="col-md-4">
+												<div class="panel panel-primary">
+													<div class="panel-heading">VECHICLE TYPE</div>
+													<div class="panel-body">
+														<h5>Values in thousands</h5>
+														<div id="vechicleType" style="height: 300px; width: 100%;"></div>
+													</div>
+												</div>
+											</div>
+										</div>
+							  	</div>		
+						
+					</div>
+				</div>
+	  		
+	  
+	 
+	</div>
+	
+	<!-- footer -->
+	<div class="row" id="vahan-footer-section">
+         <div class="col-md-3 left-position"></div>
+         <div class="col-md-6 center-position">
+            <div class="inline-section top-space">
+                        This Website belongs to MudBud2.0
+                        <br>
+                        Government of India
+            </div>
+         </div>
+         <div class="col-md-3 right-position footer-line-height"> </div>
+    </div>
+	<!-- footer ends-->
+	
+</div>
+
+ <script src="js/vendor/jquery/jquery-2.1.4-min.js"></script>
+ 
+ <script src="js/vendor/bootstrap/bootstrap.min.js"></script>
+ 	
+ <script src="js/vendor/graph/raphael-min.js"></script>
+ <script src="js/vendor/graph/prettify.min.js"></script>
+ <script src="js/vendor/graph/morris.min.js"></script>
+ 
+ <script src="js/Portal.js"></script>
+ 
+
+</body>
+</html>

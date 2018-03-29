@@ -1,0 +1,183 @@
+<!--  old form for login but not used ryt nw -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+	  <link rel="stylesheet" href="css/vendor/bootstrap/bootstrap.min.css">
+  	  <link rel="stylesheet" href="css/main.css">
+  	  <link rel="stylesheet" href="css/graph/morris.css">
+  	  <link rel="stylesheet" href="css/graph/prettify.min.css">
+<title>Police Portal</title>
+
+<style>
+#main-vechile-number-leftpanel{
+background: url("res/img/vechicle-number.jpg") #4898b3;
+padding-top: 50px;
+    text-align: center;
+    padding:0;
+}
+
+#vechicle-number-rightpanel{
+	background: #fff;
+    border-radius: 1px;
+    padding: 15px 20px;
+}
+</style>
+</head>
+<body>
+ <div class="row">
+ 	<div class="row">
+		 <div class="container">
+                        <div class="inline-section vertical-right-divider">
+                            <div id="logo">
+                                <a href="https://parivahan.gov.in/parivahan" title="Home">
+                                    <img src="HTTPS://parivahan.gov.in/parivahan/sites/default/files/logo-parivahan-sewa-en.png" class="emblem-resize"></a>
+                            </div>
+
+                        </div>
+                        <div class="inline-section fix-width">
+                            <div class="govt-india">
+                                Government of India 
+                            </div>
+                            <div class="slogan-name">
+                                Ministry of Urban Development &amp; Highways       
+                            </div>
+                        </div>
+           </div>
+	</div>
+	<!-- menu section begin -->
+	<div class="row" >
+	
+		<nav class="navbar" id="navigation">
+		  <div class="container-fluid">
+		    
+		    <ul class="nav navbar-nav">
+		      <li class="active" ><a href="#" id="text">VISION</a></li>
+		      <li><a href="#" id="text">ABOUT US</a></li>
+		      <li><a href="#" id="text">FAQ</a></li>
+		      <li><a href="#" id="text">CONTACT US</a></li>
+		    </ul>
+		  </div>
+        </nav>
+	
+	</div>
+	<!-- menu section ends -->
+	
+	<!-- main content row begin -->
+	<div class="row"><marquee id="marque">Here Police have to login with its details</marquee></div>
+	<div class="row" style="margin-top:1.5%; margin-left:3%;">
+	
+	<!-- graph and login details begin-->
+     <div class="row" >
+     
+      <div class="col-md-5">
+        	
+			    
+			       
+			            
+       		
+	   </div>
+	   <div class="row">
+	   		<div class="container">
+	   		
+	   		<div class="col-md-7" id="main-vechicle-number-panel" >
+			
+        				<div class="col-md-12" id="vechicle-number-rightpanel">
+        					
+        							<div id="loginbox"  class="mainbox col-md-6 ">                    
+                      
+
+                    <div style="padding-top:30px" class="panel-body" >
+
+                        
+                        <form id="loginform" class="form-horizontal" role="form">
+                                    
+                            <div style="margin-bottom: 25px" class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                        <input id="login-username" type="text" class="form-control" name="username" value="" placeholder="username or email">                                        
+                             </div>
+                                
+                            <div style="margin-bottom: 25px" class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                        <input id="login-password" type="password" class="form-control" name="password" placeholder="password">
+                             </div>
+                                    
+                            <div class="input-group">
+                                      <div class="checkbox">
+                                        <label>
+                                          <input id="login-remember" type="checkbox" name="remember" value="1"> Remember me
+                                        </label>
+                                      </div>
+                             </div>
+                             <div style="margin-top:10px" class="form-group">
+                                    <!-- Button -->
+
+                                    <div class="col-sm-12 controls">
+                                      <a id="btn-login" href="#" class="btn btn-success">Login  </a>
+                                      <a href="#" class="btn btn-warning">Forgot password?</a>
+                                     </div>
+                                     
+                             </div>
+                                   
+                         </form>     
+                       </div>                     
+                      
+               </div>
+ 	       						
+ 	       				</div>
+ 	       				</div>
+        			</div>
+        	
+		</div>
+	   		
+	   		
+	   		</div>
+	   </div>
+	  </div> 	
+	 
+	</div>
+	
+
+ <script src="js/vendor/jquery/jquery-2.1.4-min.js"></script>
+ 
+ <script src="js/vendor/bootstrap/bootstrap.min.js"></script>
+  <script src="js/vendor/graph/moment.min.js"></script>
+  <script src="js/vendor/graph/raphael-min.js"></script>
+  <script src="js/vendor/graph/morris.min.js"></script>
+  <script src="js/vendor/graph/prettify.min.js"></script>
+ <script>
+
+ 
+ /*bar graph js
+ */
+Morris.Bar({
+	  element: 'graph',
+	  data: [
+	    {x: '2011 Q1', y: 0},
+	    {x: '2011 Q2', y: 1},
+	    {x: '2011 Q3', y: 2},
+	    {x: '2011 Q4', y: 3},
+	    {x: '2012 Q1', y: 4},
+	    {x: '2012 Q2', y: 5},
+	    {x: '2012 Q3', y: 6},
+	    {x: '2012 Q4', y: 7},
+	    {x: '2013 Q1', y: 8}
+	  ],
+	  xkey: 'x',
+	  ykeys: ['y'],
+	  labels: ['Y'],
+	  barColors: function (row, series, type) {
+	    if (type === 'bar') {
+	      var red = Math.ceil(255 * row.y / this.ymax);
+	      return 'rgb(' + red + ',0,0)';
+	    }
+	    else {
+	      return '#000';
+	    }
+	  }
+	});
+</script>
+ 
+</body>
+</html>
