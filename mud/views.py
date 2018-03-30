@@ -14,6 +14,9 @@ def get_or_none(m,**kwargs):
     except:
         return None
 
+
+def home_page(request):
+    return HttpResponseRedirect('/accounts/login/')
 '''
 @login_required(login_url = '/accounts/login/')
 def get_info(request):
@@ -199,10 +202,6 @@ def vehicle_details(request,cs_no):
     present_f = present_i
     return render(request, 'mud/UserDashboardVechiclesDetail.html', {'vdetails_f':vdetails_f,'present_f':present_f })
 
-
-
-def main_page(request):
-    return render(request, 'mud/MainPage.html')
 
 def police_dashboard(request):
     vno = request.GET.get("vechicle-number")

@@ -47,13 +47,16 @@
 		  <div class="container-fluid">
 		    
 		    <ul class="nav navbar-nav">
-		      <li><a href="#" id="text">HOME</a></li>	
+		      <li><a href="/accounts/login" id="text">HOME</a></li>	
 		      <li><a href="#" id="text">VISION</a></li>
 		      <li><a href="#" id="text">ABOUT</a></li>
 		      <li><a href="#" id="text">FAQ</a></li>
 		      <li><a href="#" id="text">CONTACT</a></li>
-		      <li><a href="#" id="text">LOGIN</a></li>
-		      <li><a href="#" id="text">SIGNUP</a></li>
+		      <li><a href="/accounts/login" id="text">LOGIN</a></li>
+		      <li><a href="/accounts/signup" id="text">SIGNUP</a></li>
+			{% if request.user.is_authenticated %}
+			<li><a href="/accounts/logout" id="text">LOGOUT</a></li>
+			{% endif %}	
 		    </ul>
 		  </div>
         </nav>

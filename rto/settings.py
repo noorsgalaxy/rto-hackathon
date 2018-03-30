@@ -25,7 +25,7 @@ SECRET_KEY = '6z)mx*in=rb!1lywqqtmjd#4tcq3%%qh742^+m@f6e36^6f+sr'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["192.168.96.38"]
+ALLOWED_HOSTS = ["192.168.96.38","192.168.43.252","127.0.0.1"]
 
 
 # Application definition
@@ -139,3 +139,5 @@ EMAIL_HOST_PASSWORD = 'mudbud2.0'
 EMAIL_PORT = 587
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 ACCOUNT_ADAPTER = 'rto.adapter.AccountAdapter'
+ACCOUNT_LOGOUT_ON_GET = True
+ACCOUNT_LOGOUT_REDIRECT_URL = "/accounts/login"

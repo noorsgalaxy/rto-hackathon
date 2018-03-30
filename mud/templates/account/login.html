@@ -1,100 +1,177 @@
-<!--  old form for login but not used ryt nw -->
+<!-- entry page of website -->
 
 <!DOCTYPE html>
+{% extends "mud/base.html" %}
+{%load staticfiles %}
+{% load widget_tweaks %}
+
+{% block head_title %}Login{% endblock %}
+
 {% load static %}
 {% load i18n %}
-<html>
-<head>
-<meta charset="ISO-8859-1">
-	  <link rel="stylesheet" href={% static "mud/css/vendor/bootstrap/bootstrap.min.css" %}>
-  	  <link rel="stylesheet" href={% static "mud/css/main.css" %}>
-	  <link rel="stylesheet" href={% static "mud/css/vendor/graph/morris.css" %}>
-  	  <link rel="stylesheet" href={% static "mud/css/vendor/graph/prettify.min.css" %}>
-
-<title>Police Portal</title>
-
+{% block extra_head %}
 <style>
-#main-vechile-number-leftpanel{
-background: url("res/img/vechicle-number.jpg") #4898b3;
-padding-top: 50px;
-    text-align: center;
-    padding:0;
+#main_content{
+	background: url({% static "mud/res/video/bg-gif.gif" %});
+	background-size: cover;
+	height:532px;
+	width:100%;
+	mrgin-top:-1em;
+	margin-right:1%;
+	position:relative;
+
 }
 
-#vechicle-number-rightpanel{
-	background: #fff;
-    border-radius: 1px;
-    padding: 15px 20px;
+#li{
+    float: left;
+    width: 25%;
+    padding: 24px;
+    height: 100px;
+    font-size: 15px;
+    color: #0bdcd2;
+    line-height: 1.4;
+    text-align: center;
+    background-color: #0a0a0aeb;
+    border: 1px solid #fff;
+}
+
+#li  a{
+ color:white;
+}
+
+
+
+#notice_heading{
+	 height: 30px;
+    color: white;
+    font-size: 20px;
+    background: #0a0a0aeb;
+    padding: 0;
+    text-align: center;
 }
 </style>
-</head>
-<body>
- <div class="row">
- 	<div class="row">
-		 <div class="container">
-                        <div class="inline-section vertical-right-divider">
-                            <div id="logo">
-                                <a href="https://parivahan.gov.in/parivahan" title="Home">
-                                    <img src="HTTPS://parivahan.gov.in/parivahan/sites/default/files/logo-parivahan-sewa-en.png" class="emblem-resize"></a>
-                            </div>
+{% endblock %}
+{% block content %}
 
-                        </div>
-                        <div class="inline-section fix-width">
-                            <div class="govt-india">
-                                Government of India 
-                            </div>
-                            <div class="slogan-name">
-                                Ministry of Urban Development &amp; Highways       
-                            </div>
-                        </div>
-           </div>
-	</div>
-	<!-- menu section begin -->
-	<div class="row" >
 	
-		<nav class="navbar" id="navigation">
-		  <div class="container-fluid">
-		    
-		    <ul class="nav navbar-nav">
-		      <li class="active" ><a href="#" id="text">VISION</a></li>
-		      <li><a href="#" id="text">ABOUT US</a></li>
-		      <li><a href="#" id="text">FAQ</a></li>
-		      <li><a href="#" id="text">CONTACT US</a></li>
-		    </ul>
-		  </div>
-        </nav>
+	<!-- main content row-->
 	
-	</div>
-	<!-- menu section ends -->
-	
-	<!-- main content row begin -->
-	
-	<div class="row" style="margin-top:1.5%; margin-left:3%;">
-	
-	<!-- graph and login details begin-->
-     <div class="row" >
-     
-      <div class="col-md-5">
-        	
-			    
-			       
-			            
-       		
-	   </div>
-	   <div class="row">
-	   		<div class="container">
-	   		
-	   		<div class="col-md-7" id="main-vechicle-number-panel" >
-			
-        				<div class="col-md-12" id="vechicle-number-rightpanel">
-        					
-        							<div id="loginbox"  class="mainbox col-md-6 ">                    
-                      
-
-                    <div style="padding-top:30px" class="panel-body" >
-			<form id="loginform" class="form-horizontal login"" role="form" method="POST" action="/accounts/login/">
-			  {% csrf_token %}
-			<div style="margin-bottom: 25px" class="input-group">
+	<div class="row" id="main">
+	  <div class="col-md-12" id="main_content">
+	   <div class="row" style="margin-top:7%;margin-left:3%;opacity:.6;">
+		
+		<div class="col-md-7" >
+			<div class="">
+        		
+        		<div class="panel-body">
+        			<!-- row 1 -->
+        			<div class="row">
+        				<div class="col-md-12">
+        					<div class="row">
+        						<div class="col-md-4" id="li">
+        							
+        							     <span class="glyphicon glyphicon-asterisk" aria-hidden="true" style="
+    										font-size: 24px; margin-left:10%;"	>
+    									</span>
+        								 <span class="glyphicon-class" style="display: block;text-align: center;
+    										word-wrap: break-word;"><a href="SafetyRules.html">Safety Rules</a>
+    									</span> 
+        						</div>
+        						<div class="col-md-4"  id="li">
+        							<span class="glyphicon glyphicon-plus" aria-hidden="true" style="font-size: 24px; margin-left:10%;"	>
+        							</span>
+        							<span class="glyphicon-class" style="display: block; text-align: center;
+   										 word-wrap: break-word;"><a href="Penalty.html">Penalty Rules</a>
+   									</span> 
+        						</div>
+        						<div class="col-md-4" id="li">
+        							<span class="glyphicon glyphicon-th-large" aria-hidden="true" style="font-size: 24px; margin-left:10%;"	>
+        							</span>
+        							<span class="glyphicon-class" style="display: block; text-align: center;
+   										 word-wrap: break-word;"><a href="UserFee.html">User Fee</a>
+   									</span> 
+        						</div>
+        					</div>
+        				</div>
+        			</div>	
+        			<!-- row 2 -->
+        			<div class="row">
+        				<div class="col-md-12">
+        					<div class="row">
+        						<div class="col-md-4" id="li">
+        							
+        							     <span class="glyphicon glyphicon-book" aria-hidden="true" style="
+    										font-size: 24px; margin-left:10%;"	>
+    									</span>
+        								 <span class="glyphicon-class" style="display: block;text-align: center;
+    										word-wrap: break-word;"><a href="NewVechicleRegistrationPage.html">New Vechicle Registration</a>
+    									</span> 
+        						</div>
+        						<div class="col-md-4"  id="li">
+        							<span class="glyphicon glyphicon-picture" aria-hidden="true" style="font-size: 24px; margin-left:10%;"	>
+        							</span>
+        							<span class="glyphicon-class" style="display: block; text-align: center;
+   										 word-wrap: break-word;"><a href="Homologation.html">Homologation</a>
+   									</span> 
+        						</div>
+        						<div class="col-md-4" id="li">
+        							<span class="glyphicon glyphicon-check" aria-hidden="true" style="font-size: 24px; margin-left:10%;"	>
+        							</span>
+        							<span class="glyphicon-class" style="display: block; text-align: center;
+   										 word-wrap: break-word;"><a href="PermitFeeAndPeriod.html">Permit Fee & Period</a>
+   									</span> 
+        						</div>
+        					</div>
+        				</div>
+        			</div>
+        			
+        			<!-- row 3 -->
+        			<div class="row">
+        				<div class="col-md-12">
+        					<div class="row">
+        						<div class="col-md-4" id="li">
+        							
+        							     <span class="glyphicon glyphicon-phone-alt" aria-hidden="true" style="
+    										font-size: 24px; margin-left:10%;"	>
+    									</span>
+        								 <span class="glyphicon-class" style="display: block;text-align: center;
+    										word-wrap: break-word;"><a href="TypesOfPermit.html">Types Of Permit</a>
+    									</span> 
+        						</div>
+        						<div class="col-md-4"  id="li">
+        							<span class="glyphicon glyphicon-flash" aria-hidden="true" style="font-size: 24px; margin-left:10%;"	>
+        							</span>
+        							<span class="glyphicon-class" style="display: block; text-align: center;
+   										 word-wrap: break-word;"><a href="ActsRulesPolicies.html">Acts Rules & Policies</a>
+   									</span> 
+        						</div>
+        						<div class="col-md-4" id="li">
+        							<span class="glyphicon glyphicon-ban-circle" aria-hidden="true" style="font-size: 24px; margin-left:10%;"	>
+        							</span>
+        							<span class="glyphicon-class" style="display: block; text-align: center;
+   										 word-wrap: break-word;">Safety Rules
+   									</span> 
+        						</div>
+        					</div>
+        				</div>
+        			</div>
+        		</div>
+    		</div>
+		</div>
+		<div class="col-md-1"></div>
+		<div class="col-md-3" >
+				
+			    <div class="row" id="main-vechile-number-panel">
+        				<div class=""> 
+        				 <div class="col-md-10" id="vechicle-number-rightpanel" style="margin-top:9%;">
+        				     <div class="container">
+	   							<div id="loginbox"  class="mainbox col-md-4 ">                    
+                   					<div class="panel panel-success" >
+                                      <div style="padding-top:30px" class="panel-body" >
+				                        <form id="loginform" class="form-horizontal login"" role="form" method="POST" action="/accounts/login/">
+{% csrf_token %}
+	                 			        
+	                 			           <div style="margin-bottom: 25px" class="input-group">
                                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
 			  <input type="text" class="form-control" name="login" autofocus="autofocus" required placeholder="Username" id="id_login" maxlength="150" />
 			</div>
@@ -125,63 +202,28 @@ padding-top: 50px;
                                      
                              </div>
 			</form>
-                        
-                       </div>                     
-                      
-               </div>
- 	       						
- 	       				</div>
- 	       				</div>
-        			</div>
-        	
+                			           </div>                     
+                    			     </div>  
+               					 </div>
+	   						</div>
+	        			</div>
+ 	       				<!-- end of vechicle form rightpanel  -->
+    		    </div>
+    		    </div>
+		   
 		</div>
-	   		
-	   		
-	   		</div>
-	   </div>
-	  </div> 	
-	 
+		
+		</div>
+		
+	  	<div class="row" style="height: 59px;">
+		<div class="col-md-12" >
+			
+		</div>
+	  </div>
+	  
 	</div>
-	
-  	  <link rel="stylesheet" href={% static "mud/js/vendor/jquery/jquery-2.1.4-min.js" %}>
-  	  <link rel="stylesheet" href={% static "mud/js/vendor/bootstrap/bootstrap.min.js" %}>
-  	  <link rel="stylesheet" href={% static "mud/js/vendor/graph/moment.min.js" %}>
-  	  <link rel="stylesheet" href={% static "mud/js/vendor/graph/raphael-min.js" %}>
-  	  <link rel="stylesheet" href={% static "mud/js/vendor/graph/morris.min.js" %}>
-  	  <link rel="stylesheet" href={% static "mud/js/vendor/graph/prettify.min.js" %}>
- 
- <script>
 
+ <script src="js/vendor/jquery/jquery-2.1.4-min.js"></script>
  
- /*bar graph js
- */
-Morris.Bar({
-	  element: 'graph',
-	  data: [
-	    {x: '2011 Q1', y: 0},
-	    {x: '2011 Q2', y: 1},
-	    {x: '2011 Q3', y: 2},
-	    {x: '2011 Q4', y: 3},
-	    {x: '2012 Q1', y: 4},
-	    {x: '2012 Q2', y: 5},
-	    {x: '2012 Q3', y: 6},
-	    {x: '2012 Q4', y: 7},
-	    {x: '2013 Q1', y: 8}
-	  ],
-	  xkey: 'x',
-	  ykeys: ['y'],
-	  labels: ['Y'],
-	  barColors: function (row, series, type) {
-	    if (type === 'bar') {
-	      var red = Math.ceil(255 * row.y / this.ymax);
-	      return 'rgb(' + red + ',0,0)';
-	    }
-	    else {
-	      return '#000';
-	    }
-	  }
-	});
-</script>
- 
-</body>
-</html>
+ <script src="js/vendor/bootstrap/bootstrap.min.js"></script>
+ {% endblock %}

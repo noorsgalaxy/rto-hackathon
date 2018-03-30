@@ -16,11 +16,12 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from django.conf.urls import include
-
+from mud.views import home_page
 
 
 urlpatterns = [
     url(r'^mud/', include('mud.urls')),
     url(r'^accounts/', include('allauth.urls')),
     url(r'^admin/', admin.site.urls),
+    url(r'^$', home_page),
 ]

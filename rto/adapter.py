@@ -10,7 +10,7 @@ class AccountAdapter(DefaultAccountAdapter):
         print user,group,type(group)
         if group == "rto":
             url = "/admin"
-        elif group == "polic":
+        elif group == "police":
             url = "/mud/policedash"
         elif group == "pollution_control":
             url = "/"
