@@ -35,7 +35,12 @@
 								<div class="profile-usermenu">
 									<div class="profile_nav">
 										<li >
-											<a href="#">
+											<a href="{% url 'user_dashboard' %}">
+											<i class="glyphicon glyphicon-user"></i>
+											Home</a>
+										</li>
+										<li >
+											<a href="{% url 'pdetails_view' %}">
 											<i class="glyphicon glyphicon-user"></i>
 											Basic details </a>
 										</li>
@@ -106,9 +111,7 @@
                    <label class="col-xs-5 control-label">Registration Number: </label>
 			{% if vdetails_f.registration_no is not None %}
                    <p class="form-control-static">{{ vdetails_f.registration_no }}</p>
-			{% else %}  
-			<p class="form-control-static">Still not Registered</p>
-			{% endif %}                         
+						{% endif %}                         
               </div>
             </div>
 
@@ -143,7 +146,7 @@
             
           </div>
         </fieldset>
-{% if vdetails_f.registration_no is None %}
+{% if vdetails_f.registration_no == 'Still not Registered' %}
                    
 			 
 <a href="{% url 'reg' purpose=vdetails_f.chassis_no %}"><button type="button" class="btn btn-warning ">Edit</button>
