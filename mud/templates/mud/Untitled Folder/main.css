@@ -1,0 +1,305 @@
+@CHARSET "ISO-8859-1";
+
+body{
+	
+	height:100%;
+	width:100%;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    overflow-x:hidden;
+}
+#indianemblem{
+	height:68px;
+}
+
+header {
+	  width: auto;
+	  height:50px; 
+	  overflow: hidden;
+	  top: 0;
+	  left: 0;
+	  z-index: 999;
+	  background: #124DAC;
+	  color: #FFFFFF;
+	  -webkit-transition: height 0.3s;
+	  -moz-transition: height 0.3s;
+	  -ms-transition: height 0.3s;
+	  -o-transition: height 0.3s;
+	  transition: height 0.3s; 
+  }
+  header h1#logo {
+    display: inline-block;
+  	height:50px; 
+    float: left;
+    font-family: "Oswald", sans-serif;
+    
+    color: white;
+    font-weight: 400;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s; 
+    }
+  header nav {
+    display: inline-block;
+    float: right; 
+    }
+    header nav a {
+      line-height: 50px;
+      margin-left: 20px;
+      color: #FFFFFF;
+      font-weight: 700;
+      font-size: 18px;
+      -webkit-transition: all 0.3s;
+      -moz-transition: all 0.3s;
+      -ms-transition: all 0.3s;
+      -o-transition: all 0.3s;
+      transition: all 0.3s; 
+      }
+      header nav a:hover {
+        color: white; 
+        }
+  header.smaller {
+    height: 40px; 
+    }
+    header.smaller h1#logo {
+      width: 150px;
+      height: 60px;
+      line-height: 60px;
+      font-size: 25px; 
+      }
+    header.smaller nav a {
+      line-height: 40px; 
+      }
+      
+ /*css for parivahn logo and slogan*/     
+  .inline-section {
+    display: inline-block;
+    vertical-align: top;
+}
+.vertical-right-divider {
+    border-right: 2px solid #000000;
+    padding-right: 10px;
+    margin: 5px 10px 5px 0px;
+    box-sizing: content-box;
+}
+
+.govt-india {
+    font-family: 'Open Sans';
+    font-size: 1.5em;
+    color: #484646;
+    margin: 8px auto 0px;
+}
+
+.slogan-name {
+    font-family: 'Open Sans';
+    font-size: 1.75em;
+    color: #000000;
+    text-shadow: 1px 1px #CCC;
+    text-transform: uppercase;
+    font-weight: bold;
+}    
+
+.loginpage-govt-india {
+    font-family: 'Open Sans';
+    font-size: 1.8em;
+    color: #373636;
+    margin: 8px auto 0px;
+}
+.loginpage-slogan-name{
+	font-family: 'Open Sans';
+    font-size: 1.8em;
+    color: #373636;
+	1px 1px rgba(0, 0, 0, 0.94);
+	text-transform: uppercase;
+    font-weight: bold;
+}
+/*css for navigation bar*/
+
+#navigation{
+	background: -webkit-linear-gradient(top, #3a96ce, #266184);
+	text-decoration: none;
+    color: #FFFFFF;
+ margin:0;
+    margin-left:2em;
+   
+}
+
+#main{
+	
+     margin-left: 1em;
+    margin-right: 1em
+   
+}
+
+
+/*footer*/
+#vahan-footer-section {
+    width: 103%;
+    text-align:center;
+    background: #373636;
+    
+    color: #FFF;
+}
+#text{ 
+	color: white;
+}
+
+
+/*accordion css*/
+
+.accordionPanel {
+    padding: 0 18px;
+    display: none;
+    background-color: white;
+    overflow: hidden;
+}
+
+
+/*pollution control accordion particular css*/
+.active, .pollutionControlAccordian:hover {
+    background-color: #ccc; 
+}
+.pollutionControlAccordian {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    margin-bottom: .5em;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+}
+
+
+/*pollution control accordion specific  css*/
+.policeControlAccordian {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    margin-bottom: .5em;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+}
+
+.active, .policeControlAccordian:hover {
+    background-color: #ccc; 
+}
+
+
+/*profile side panel*/
+/* Profile sidebar */
+.profile-sidebar {
+  padding: 20px 0 10px 0;
+  
+}
+
+.profile-userpic img {
+  float: none;
+  margin: 0 auto;
+  width: 50%;
+  height: 50%;
+  -webkit-border-radius: 50% !important;
+  -moz-border-radius: 50% !important;
+  border-radius: 50% !important;
+}
+
+.profile-usertitle {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.profile-usertitle-name {
+  color: #5a7391;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 7px;
+}
+
+.profile-usertitle-email {
+ 
+  color: #5b9bd1;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.profile-userbuttons {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.profile-userbuttons .btn {
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 6px 15px;
+  margin-right: 5px;
+}
+
+.profile-userbuttons .btn:last-child {
+  margin-right: 0px;
+}
+    
+.profile-usermenu {
+  margin-top: 30px;
+}
+
+.profile_nav > li{
+	padding:8px;
+    margin-left: 10%;
+    /* border: 2px solid; */
+    /* margin: 10%; */
+    /* margin-right: 10%; */
+    font-size: 14px;
+}
+}
+.profile-usermenu ul li:last-child {
+  border-bottom: none;
+}
+
+.profile-usermenu ul li a {
+  color: #93a3b5;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.profile-usermenu ul li a i {
+  margin-right: 8px;
+  font-size: 14px;
+}
+
+.profile-usermenu ul li a:hover {
+  background-color: #fafcfd;
+  color: #5b9bd1;
+}
+
+.profile-usermenu ul li.active {
+  border-bottom: none;
+}
+
+.profile-usermenu ul li.active a {
+  color: #5b9bd1;
+  background-color: #f6f9fb;
+  border-left: 2px solid #5b9bd1;
+  margin-left: -2px;
+}
+
+/* Profile Content */
+.profile-content {
+  padding: 20px;
+  background: #fff;
+  min-height: 460px;
+}
+
+/*main content div for main page login page and vechicle search page*/

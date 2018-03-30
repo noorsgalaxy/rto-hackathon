@@ -9,6 +9,9 @@ body{
     position: relative;
     overflow-x:hidden;
 }
+#indianemblem{
+	height:68px;
+}
 
 header {
 	  width: auto;
