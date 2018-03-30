@@ -13,50 +13,7 @@
 	  		<div class="row">
 	  			<div class="container" style="width:100%;background: #08102d;">
 	  				<!-- row of user navigation bar -->
-				    <div class="col-md-2" >
-						<div class="row profile">
-							<div class="profile-sidebar">
-								<!-- SIDEBAR USERPIC -->
-								<div class="profile-userpic">
-									<img src={% static "mud/res/img/login-user.png"%} class="img-responsive" alt="">
-								</div>
-								<!-- END SIDEBAR USERPIC -->
-								<!-- SIDEBAR USER TITLE -->
-								<div class="profile-usertitle">
-									<div class="profile-usertitle-name">
-										{{ user }}
-									</div>
-									<div class="profile-usertitle-email">
-										{{ user.email }}
-									</div>
-								</div>
-								<!-- END SIDEBAR USER TITLE -->
-								<!-- SIDEBAR MENU -->
-								<div class="profile-usermenu">
-									<div class="profile_nav">
-										<li >
-											<a href="#">
-											<i class="glyphicon glyphicon-user"></i>
-											Basic details </a>
-										</li>
-										<li>
-											<a href="{% url 'reg' purpose='edit' %}">
-											<i class="glyphicon glyphicon-list"></i>
-											Vechicle Registration </a>
-										</li>
-										<li>
-											<a href="#" target="_blank">
-											<i class="glyphicon glyphicon-ok"></i>
-											RC Transfer </a>
-										</li>
-										
-									</div>
-								</div>
-								<!-- END MENU -->
-							</div>
-						</div>
-					</div>
-					
+				    {% include "mud/leftside.html" %}
 					<!-- row for right panel container  -->
 					<div class="col-md-10" style="background-color:white;">
 								<!-- first row of vechicle detail -->
