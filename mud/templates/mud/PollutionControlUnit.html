@@ -18,8 +18,8 @@
 		 <div class="container">
                         <div class="inline-section vertical-right-divider">
                             <div id="logo">
-                                <a href="https://parivahan.gov.in/parivahan" title="Home">
-                                    <img src="HTTPS://parivahan.gov.in/parivahan/sites/default/files/logo-parivahan-sewa-en.png" class="emblem-resize"></a>
+                                <a title="Home">
+                                    <img id="indianemblem" src="res/img/logo-parivahan-sewa-en.jpg" class="emblem-resize"></a>
                             </div>
 
                         </div>
@@ -28,7 +28,7 @@
                                 Government of India 
                             </div>
                             <div class="slogan-name">
-                                Ministry of Urban Development &amp; Highways       
+                                Ministry of Housing &amp; Urban Affairs       
                             </div>
                         </div>
            </div>
@@ -51,15 +51,84 @@
 	</div>
 	<!-- menu section ends -->
 	
+	
+	
+	
 	<!-- main content row begin -->
-	<div class="row" style="margin-top:1.5%; margin-left:3%;margin-right:3%">
+	<div class="row">
+		<div class="container" style="width:100%;background: #08102d;">
+			<div class="col-md-2" >
+						<div class="row profile">
+							<div class="profile-sidebar">
+								<!-- SIDEBAR USERPIC -->
+								<div class="profile-userpic">
+									<img src="res/img/login-user.png" class="img-responsive" alt="">
+								</div>
+								<!-- END SIDEBAR USERPIC -->
+								<!-- SIDEBAR USER TITLE -->
+								<div class="profile-usertitle">
+									<div class="profile-usertitle-name">
+										RTO USER BOARD
+									</div>
+									<div class="profile-usertitle-email">
+										mudbud2.0@mudbud.com
+									</div>
+								</div>
+								<!-- END SIDEBAR USER TITLE -->
+								<!-- SIDEBAR MENU -->
+								<div class="profile-usermenu">
+									<div class="profile_nav">
+										<li>
+											<a href="#" target="_blank">
+											<i class="glyphicon glyphicon-ok"></i>
+											REGISTERED POLLUTION CENTRE IN ZONE </a>
+										</li>
+										
+									</div>
+								</div>
+								<!-- END MENU -->
+							</div>
+						</div>
+					</div>
+			
+			<div class="col-md-10" style="background-color:white;">
+				<div class="row" style="margin:2%">
+						<div >
 	
 	<!-- personal details begin-->
      <div class="row" >
-      <div class="col-md-12">
+      <div >
         <div class="panel panel-info">
-			<div class="panel-heading"> Owner details </div>
-	           <div class="panel-body">
+		     <div class="panel-body">
+	           		
+	           		<!--  section 4 for police protal begin -->
+					<button class="pollutionControlAccordian" aria-expanded="true" style="background-color:coral;">Pollution Centre PORTAL</button>
+						<div class="accordionPanel collapse show">
+											 		<div class="row" >
+													      <div class="col-md-12">
+													        <div class="panel panel-info">
+																
+														        <div class="panel-body">
+															     		<form class="form-horizontal" role="form" name="personalform"> {% csrf_token %}
+    
+                                               {% for f in pollution_f %}
+						<div class="form-group row">
+						    <label for="ownerName" class="col-sm-2 col-form-label">{{ f.label_tag }}</label>
+						    <div class="col-sm-10">
+                                               {% render_field f class="form-control" %}
+						    </div>
+						</div>
+                                                {% endfor %}
+
+                                                <button type="submit" class="btn btn-success btn-lg btn-block"> CLICK HERE TO SUBMIT DATA </button>
+			</form>
+																		
+															         </div>
+															 	</div>	
+														   </div>
+														 </div>
+											</div>
+		     		<!--  section 4 for police poratl ends -->
 	           		
 	           		<!-- section one for personal details begin  -->
 		     		<button class="pollutionControlAccordian" style="background-color:goldenrod;" >OWNER DETAILS</button>
@@ -69,7 +138,7 @@
 									        <div class="panel panel-info">
 												
 										           <div class="panel-body">
-						<fieldset class="for-panel">
+											     <fieldset class="for-panel">
           <div class="row">
             <div class="col-sm-6">
               <div class="form-horizontal">               
@@ -99,7 +168,8 @@
               </div>
             </div>
           </div>
-        </fieldset>										
+        </fieldset>				
+												
 									         </div>
 							 	
 									 	</div>	
@@ -120,7 +190,7 @@
 								<div class="panel-heading">
 						Permanent Address </div>
 									<div class="panel-body">
-                                            				<fieldset class="for-panel">
+										<fieldset class="for-panel">
                     <div class="row">
             <div class="col-sm-6">
               <div class="form-horizontal">               
@@ -135,15 +205,17 @@
               </div>
             </div>
         </fieldset>
-</div>
+									</div>
+						    	</div>
 							</div>
-						</div>
-
-			<div class="col-md-6">
+				
+					<!-- present address -->	
+							<div class="col-md-6">
 							  <div class="panel panel-info">
-								<div class="panel-heading">Present Address </div>
+								<div class="panel-heading">
+						Present Address </div>
 								<div class="panel-body">
-          	<fieldset class="for-panel">
+									<fieldset class="for-panel">
                     <div class="row">
             <div class="col-sm-6">
               <div class="form-horizontal">               
@@ -158,23 +230,25 @@
               </div>
 			  
             </div>
-        </fieldset>					
+        </fieldset>				
+					      </div>
+					</div>
+				</div> 		
+				 		
+         </div>
 								</div>
-						    	</div>
-						</div>
-	          			</div>
-    				</div>				
+							
 					<!--  section 2 for address details ends -->	
 					
 					<!-- section 3 for vechicle details begin -->
-								<button class="pollutionControlAccordian" style="background-color:yellowgreen;">OWNER VECHICLE DETAILS</button>
-									<div class="accordionPanel">
-									  		<div class="row" >
+					<button class="pollutionControlAccordian" style="background-color:yellowgreen;">OWNER VECHICLE DETAILS</button>
+						<div class="accordionPanel">
+					  		<div class="row" >
      											 <div class="col-md-12">
        												 <div class="panel panel-info">
 													
 											        <div class="panel-body">
-					                               <fieldset class="for-panel">
+												     		<fieldset class="for-panel">
           <fieldset class="for-panel">
           
           <div class="row">
@@ -222,7 +296,6 @@
             </div>
           </div>
         </fieldset>
-	
 														
 												         </div>
 		 												</div>	
@@ -230,43 +303,22 @@
 	   
 	   
 	 										 </div> 
-									</div>
+						</div>
 					<!-- section 3 for vechicke details ends -->
 					
-					<!--  section 4 for pollution portal begin -->
-										<button class="pollutionControlAccordian"style="background-color:coral;">Pollution Centre PORTAL</button>
-											<div class="accordionPanel">
-											 		<div class="row" >
-													      <div class="col-md-12">
-													        <div class="panel panel-info">
-																
-														        <div class="panel-body">
-															     		<form class="form-horizontal" role="form" name="personalform"> {% csrf_token %}
-    
-                                               {% for f in pollution_f %}
-						<div class="form-group row">
-						    <label for="ownerName" class="col-sm-2 col-form-label">{{ f.label_tag }}</label>
-						    <div class="col-sm-10">
-                                               {% render_field f class="form-control" %}
-						    </div>
-						</div>
-                                                {% endfor %}
-
-                                                <button type="submit" class="btn btn-success btn-lg btn-block"> CLICK HERE TO SUBMIT DATA </button>
-			</form>
-																		
-															         </div>
-															 	</div>	
-														   </div>
-														 </div>
-											</div>
-		     		<!--  section 4 for pollution portal ends -->
+				
 		         </div>
 		 	
 		 	</div>	
 	   </div>
 	  </div> 	
 	 
+	</div>
+				</div>
+			
+			</div>
+		</div>
+	
 	</div>
 	
 	<!-- footer -->
@@ -290,6 +342,8 @@
             
         </div>
  </div>
+ 
+
  
  <script>
 var acc = document.getElementsByClassName("pollutionControlAccordian");

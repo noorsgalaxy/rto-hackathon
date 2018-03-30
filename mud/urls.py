@@ -12,7 +12,7 @@ urlpatterns = [
     url(r'^userdash/$', views.user_dashboard, name ='user_dashboard'),
     url(r'^policedash/$', views.police_dashboard, name ='police_dashboard'),
     url(r'^userdash/(?P<cs_no>\w+)/$', views.vehicle_details, name = 'vehicle_details'),
-    url(r'^pdetailsview/$', views.pdetails_view, name='pdetails_view')
-
+    url(r'^pdetailsview/$', views.pdetails_view, name='pdetails_view'),
+    url(r'^accident/(?P<aid>\w+)/$', views.accident_details, name='accident_details'),
 ]
 

@@ -39,19 +39,139 @@ fieldset.for-panel legend {
 {% block content %}
 
 	<!-- main content row begin -->
-	<div class="row" style="margin-top:1.5%; margin-left:3%;margin-right:3%">
-	<!-- personal details begin-->
-     <div class="row" >
-      <div class="col-md-12">
-        <div class="panel panel-info">
-			<div class="panel-heading"> Owner details </div>
-	           <div class="panel-body">
-	           		<!-- section one for personal details begin  -->
-		     		<button class="policeControlAccordian"  style="background-color:goldenrod;" >OWNER DETAILS</button>
-				<div class="accordionPanel">
-					<div class="container">
-					    <div class="row">
-						<fieldset class="for-panel">
+	<div class="row">
+		<div class="container" style="width:100%;background: #08102d;">
+			<div class="col-md-2" >
+						<div class="row profile">
+							<div class="profile-sidebar">
+								<!-- SIDEBAR USERPIC -->
+								<div class="profile-userpic">
+									<img src="res/img/login-user.png" class="img-responsive" alt="">
+								</div>
+								<!-- END SIDEBAR USERPIC -->
+								<!-- SIDEBAR USER TITLE -->
+								<div class="profile-usertitle">
+									<div class="profile-usertitle-name">
+										RTO USER BOARD
+									</div>
+									<div class="profile-usertitle-email">
+										mudbud2.0@mudbud.com
+									</div>
+								</div>
+								<!-- END SIDEBAR USER TITLE -->
+								<!-- SIDEBAR MENU -->
+								<div class="profile-usermenu">
+									<div class="profile_nav">
+										<li>
+											<a href="#" target="_blank">
+											<i class="glyphicon glyphicon-ok"></i>
+											REGISTERED POLLUTION CENTRE IN ZONE </a>
+										</li>
+										
+									</div>
+								</div>
+								<!-- END MENU -->
+							</div>
+						</div>
+					</div>
+			
+			<div class="col-md-10" style="background-color:white;">
+				<div class="row" style="margin:2%">
+					<div >
+       				 <div >
+						
+	         			  <div class="panel-body">
+	        					<!--  section 4 for police protal begin -->
+								<button class="policeControlAccordian" aria-expanded="true" style="background-color:coral;">POLICE PORTAL</button>
+									<div class="panel panel-info">
+       								 <div >
+						
+	         			  				<div class="panel-body">	
+									<div class="accordionPanel  collapse show" >
+											<div class="row" >
+											  <ul class="nav nav-tabs">
+											    <li class="active"><a data-toggle="tab" href="#accidentdetails">Previous Accident List</a></li>
+											    <li><a data-toggle="tab" href="#submitaccident">New Accidents Form </a></li>
+											   </ul>
+											  <div class="tab-content" style="padding-top: 10px;">		
+												   <div  id="submitaccident" class="tab-pane fade ">
+												      <div class="col-md-12" >
+												        <div >
+															
+													        <div >
+													     		<form class="form-horizontal" method="POST" role="form" name="personalform">
+                                                   {% csrf_token %}
+    
+                                               {% for f in police_f %}
+						<div class="form-group row">
+						    <label for="ownerName" class="col-sm-2 col-form-label">{{ f.label_tag }}</label>
+						    <div class="col-sm-10">
+                                               {% render_field f class="form-control" %}
+						    </div>
+						</div>
+                                                {% endfor %}
+
+                                                <button type="submit" class="btn btn-success btn-lg btn-block"> CLICK HERE TO SUBMIT DATA </button>
+			</form>
+																					
+														 </div>
+													</div>	
+											   </div>
+								    	   </div>
+														    	   
+										   <div id="accidentdetails" class="tab-pane fade in active">
+										 	   <div class="col-md-12">
+											    	 <div>
+										  	 	     	<div ></div>
+														 <div >		
+											    	 	  		<table class="table table-hover">
+														 			<thead>
+														 				<tr>
+															 				<th>Accident Date</th>
+															 				
+															 				<th>No. of Person Injured </th>
+															 				<th>Details</th>
+																		 				
+														 				</tr>
+														 			</thead>
+														     		 <tbody>
+													
+													{% for f in accident_f %}
+													    <tr>
+													      
+													      <td>{{ f.accident_date }}</td>
+													    <td>{{ f.no_persons_injured }}</td>
+													
+													      <td><a href="{% url 'accident_details' aid=f.id %}"><button type="button" class="btn btn-warning ">VIEW</button></td>
+													
+													    </tr>
+													{% empty %}
+													<td>No Previous Records Found </td>
+													{% endfor %}
+													
+																										  </tbody>
+																</table>
+															</div>
+											    	    </div>
+											    	 </div> 	
+										  	 	</div>
+								    	 </div>
+								    </div>
+								</div>
+					     		</div>
+					     		</div>
+					     		</div>
+				     			<!--  section 4 for police poratl ends -->   				
+	           				
+			           		<!-- section one for personal details begin  -->
+				     		<button class="policeControlAccordian"  style="background-color:goldenrod;" >OWNER DETAILS</button>
+								<div class="accordionPanel">
+											 <div class="row" >
+											      <div class="col-md-12">
+											        <div class="panel panel-info">
+														
+												           <div class="panel-body">
+													     		<fieldset class="for-panel">
           <div class="row">
             <div class="col-sm-6">
               <div class="form-horizontal">               
@@ -82,24 +202,28 @@ fieldset.for-panel legend {
             </div>
           </div>
         </fieldset>
-					    </div>
-					</div>                                </div>				 		 	
-			</div>	
-    	</div>
-       </div>	
-     </div>
-				<!-- section one for personal details ends -->
-				<!--  section 2 for address details begin -->
-					<button class="policeControlAccordian" style="background-color:khaki;">OWNER ADDRESS</button>
-					<div class="accordionPanel">
-					 	<div class="row">
-				 	
-							<!-- -Adreess Details by user-->
-							<div class="col-md-6">
-							    <div class="panel panel-info">
-								<div class="panel-heading">Permanent Address </div>
-									<div class="panel-body">
-                                               				<fieldset class="for-panel">
+														
+											         </div>
+									 	
+											 	</div>	
+										   </div>
+										</div>	
+								</div>
+								
+							<!-- section one for personal details ends -->
+							
+							<!--  section 2 for address details begin -->
+							<button class="policeControlAccordian" style="background-color:khaki;">OWNER ADDRESS</button>
+							<div class="accordionPanel">
+							 	<div class="row">
+						 	
+									<!-- -Adreess Details by user-->
+									<div class="col-md-6">
+									    <div class="panel panel-info">
+										<div class="panel-heading">
+								Permanent Address </div>
+											<div class="panel-body">
+												<fieldset class="for-panel">
                     <div class="row">
             <div class="col-sm-6">
               <div class="form-horizontal">               
@@ -114,17 +238,17 @@ fieldset.for-panel legend {
               </div>
             </div>
         </fieldset>
-								</div>
-							</div>
-						</div>
-					
-				
-					<!-- present address -->	
-							<div class="col-md-6">
-							  <div class="panel panel-info">
-								<div class="panel-heading">Present Address </div>
-								<div class="panel-body">
-          	<fieldset class="for-panel">
+											</div>
+								    	</div>
+									</div>
+						
+							<!-- present address -->	
+									<div class="col-md-6">
+									  <div class="panel panel-info">
+										<div class="panel-heading">
+								Present Address </div>
+										<div class="panel-body">
+											<fieldset class="for-panel">
                     <div class="row">
             <div class="col-sm-6">
               <div class="form-horizontal">               
@@ -139,22 +263,25 @@ fieldset.for-panel legend {
               </div>
 			  
             </div>
-        </fieldset>					
-								</div>
-						    	</div>
-						</div>
-	          			</div>
-    				</div>
-					<!--  section 2 for address details ends -->	
-					
-					<!-- section 3 for vechicle details begin -->	
-					<button class="policeControlAccordian" style="background-color:yellowgreen;">OWNER VECHICLE DETAILS</button>
-					<div class="accordionPanel">
-						<div class="row" >
-     						 <div class="col-md-12">
-       						 <div class="panel panel-info">
-					        <div class="panel-body">
-                                               <fieldset class="for-panel">
+        </fieldset>						
+							      </div>
+							</div>
+						</div> 		
+						 		
+		         </div>
+										</div>
+									
+							<!--  section 2 for address details ends -->	
+							
+							<!-- section 3 for vechicle details begin -->
+										<button class="policeControlAccordian" style="background-color:yellowgreen;">OWNER VECHICLE DETAILS</button>
+											<div class="accordionPanel">
+											  		<div class="row" >
+		     											 <div class="col-md-12">
+		       												 <div class="panel panel-info">
+															
+													        <div class="panel-body">
+														     		 <fieldset class="for-panel">
           
           <div class="row">
             <div class="col-sm-6">
@@ -201,51 +328,30 @@ fieldset.for-panel legend {
             </div>
           </div>
         </fieldset>
-	
-						</div>
-	         	</div>
-        	</div>
-	</div>
-		</div>	
-	
-<!-- section 3 for vechicke details ends -->
-					
-					<!--  section 4 for police protal begin -->
-					<button class="policeControlAccordian"style="background-color:coral;">POLICE PORTAL</button>
-					<div class="accordionPanel">
-					<div class="row" >
-					      <div class="col-md-12">
-					        <div class="panel panel-info">
-					        <div class="panel-body">
-				
-				<form class="form-horizontal" method="POST" role="form" name="personalform">
-                                                   {% csrf_token %}
-    
-                                               {% for f in police_f %}
-						<div class="form-group row">
-						    <label for="ownerName" class="col-sm-2 col-form-label">{{ f.label_tag }}</label>
-						    <div class="col-sm-10">
-                                               {% render_field f class="form-control" %}
-						    </div>
-						</div>
-                                                {% endfor %}
-
-                                                <button type="submit" class="btn btn-success btn-lg btn-block"> CLICK HERE TO SUBMIT DATA </button>
-			</form>
-			         </div>
-				 	</div>	
-					   </div>
-					 </div>
-					</div>
-		     		<!--  section 4 for police poratl ends -->
-		         </div>
+																
+														         </div>
+				 												</div>	
+			   												</div>
+			   
+			   
+			 										 </div> 
+											</div>
+							<!-- section 3 for vechicke details ends -->
+							
+		
+		         		</div>
 		 	
 		 	</div>	
-	   </div>
-	  </div> 	
-	 
+	  				 </div>
+				</div>
+			
+			</div>
+		</div>
+	
 	</div>
 	
+	
+ 
 	<!-- footer -->
 	{% endblock %}
 

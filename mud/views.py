@@ -129,8 +129,9 @@ def accident_info(request,v_no):
     presentadd_i = get_or_none(PresentAdd, vehicle = vdetails_i)
     pdetail_i = vdetails_i.owner
     permanentadd_i = get_or_none(PermanentAdd, user_personal = pdetail_i)
-    if get_or_none(PoliceOfficer, vehicle_no = v_no) is not None:
-        accident_i = PoliceOfficer.objects.filter(vehicle_no = v_no)
+    accident = PoliceOfficer.objects.filter(vehicle_no = vdetails_i.chassis_no)
+    if accident is not None:
+        accident_i = PoliceOfficer.objects.filter(vehicle_no = vdetails_i.chassis_no)
     if request.method == 'POST':
         policeofficer = PoliceOfficerForm(request.POST)
         if policeofficer.is_valid() :
@@ -145,9 +146,11 @@ def accident_info(request,v_no):
         permanent_f = permanentadd_i
         vdetails_f = vdetails_i
         presentadd_f = presentadd_i
+        print(accident_i)
+        accident_f = accident_i
         police_f  =PoliceOfficerForm()
 
-        return render(request, 'mud/PoliceControl.html', {'pdetail_f': pdetail_f,'police_f':police_f,'presentadd_f': presentadd_f,'vdetails_f': vdetails_f,'permanent_f':permanent_f})
+        return render(request, 'mud/PoliceControl.html', {'pdetail_f': pdetail_f,'accident_f':accident_f,'police_f':police_f,'presentadd_f': presentadd_f,'vdetails_f': vdetails_f,'permanent_f':permanent_f})
 
 
 @login_required(login_url = '/accounts/login/')
@@ -187,7 +190,6 @@ def user_dashboard(request):
     if puser_f is None:
         return HttpResponseRedirect('/mud/pdetails')
     vno_f = VehicleDetails.objects.filter(owner = puser_f.aadhar_no)
-    print([i.registration_no for i in vno_f])
     return render(request, 'mud/UserDashboard.html', {'puser_f':puser_f,'vno_f':vno_f,'user_name':request.user})
 
 
@@ -212,3 +214,8 @@ def police_dashboard(request):
         return render(request, 'mud/PoliceDashboard.html')
     else:
         return HttpResponseRedirect('/mud/police/'+str(vno))
+
+@login_required(login_url = '/accounts/login/')
+def accident_details(request,aid):
+    accident_i = get_or_none(PoliceOfficer, pk=aid)
+    return render(request, 'mud/AccidentDetail.html', {'accident_i':accident_i })

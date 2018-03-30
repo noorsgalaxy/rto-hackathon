@@ -1,0 +1,124 @@
+<!-- police dashboard-->
+
+<!DOCTYPE html>
+{% extends "mud/base.html" %}
+{%load staticfiles %}
+{% load widget_tweaks %}
+
+{% block head_title %}Accident Details{% endblock %}
+
+{% block extra_head %}
+<style>
+#main-vechile-number-panel{
+	background: url("res/img/vechicle-number.jpg") #4898b3;
+	padding-top: 80px;
+    text-align: center;
+    padding:0;
+    margin-right:2%;
+}
+
+#vechicle-number-rightpanel{
+	background: #fff;
+    border-radius: 1px;
+    padding: 60px 40px;
+}
+#main_content{
+	background: url("res/video/bg-gif.gif");
+	background-size: cover;
+	height:auto;
+	
+	position:relative;
+
+}
+th{
+	text-align:center;
+	text-weight:bold;
+	width:50%;
+}	
+td{
+	text-align:center;
+}
+
+
+</style>
+{% endblock %}
+{% block content %}
+
+	
+	<!-- main content row-->
+	
+	<!-- left panel of main body -->
+	
+	  		<div class="row">
+	  			<div class="container" style="width:100%;background: #08102d;">
+	  				<!-- row of user navigation bar -->
+				    <div class="col-md-2" >
+						<div class="row profile">
+							<div class="profile-sidebar">
+								<!-- SIDEBAR USERPIC -->
+								<div class="profile-userpic">
+									<img src="res/img/login-user.png" class="img-responsive" alt="">
+								</div>
+								<!-- END SIDEBAR USERPIC -->
+								<!-- SIDEBAR USER TITLE -->
+								<div class="profile-usertitle">
+									<div class="profile-usertitle-name">
+										RTO USER BOARD
+									</div>
+									<div class="profile-usertitle-email">
+										mudbud2.0@mudbud.com
+									</div>
+								</div>
+								<!-- END SIDEBAR USER TITLE -->
+								<!-- SIDEBAR MENU -->
+								<div class="profile-usermenu">
+									<div class="profile_nav">
+										<li>
+											<a href="#" target="_blank">
+											<i class="glyphicon glyphicon-ok"></i>
+											REGISTERED POLLUTION CENTRE IN ZONE </a>
+										</li>
+										
+									</div>
+								</div>
+								<!-- END MENU -->
+							</div>
+						</div>
+					</div>
+				
+					<!-- row for right panel container  -->
+					<div class="col-md-10" style="background-color:white;">
+							
+								<div class="row" style="margin:2%;margin-top: 5%;">
+										
+										<div class="col-md-12" style="height: 453px;">
+											<table class="table table-bordered">
+												<tbody>
+													<tr>
+													  <th>Accident Location</th>
+													  <td>{{ accident_i.accident_location }}</td>
+													</tr>
+													<tr>
+													  <th>Accident Cause</th>
+													  <td>{{ accident_i.accident_cause }}</td>
+													</tr>	
+													<tr>
+													  <th>No of Persons Injured</th>
+													  <td>{{ accident_i.no_persons_injured }}</td>
+													</tr>
+													<tr>
+													  <th>Accident Date</th>
+													  <td>{{ accident_i.accident_date }}</td>
+													</tr>
+													
+													</tbody>
+											</table>
+								       </div>
+					           </div>
+				   </div>
+	  		
+	  
+	 
+	           </div>
+	</div>
+{% endblock %}
