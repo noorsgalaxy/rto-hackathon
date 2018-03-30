@@ -4,6 +4,43 @@
 {% load widget_tweaks %}
 
 {% block head_title %}WELCOME{% endblock %}
+
+{% block extra_head %}
+<style>
+#main_content{
+	background: url({% static "mud/res/video/bg-gif.gif" %});
+	background-size: cover;
+	height:auto;
+	width:100%;
+	mrgin-top:-1em;
+	margin-right:1%;
+	position:relative;
+
+}
+
+#li{
+    float: left;
+    width: 33%;
+    padding: 24px;
+    height: 100px;
+    font-size: 15px;
+    color: yellow;
+    line-height: 1.4;
+    text-align: center;
+    background-color: #3281b1;
+    border: 1px solid #fff;
+}
+
+#notice_heading{
+	 height: 30px;
+    color: black;
+    font-size: 20px;
+    background: yellow;
+    padding: 0;
+    text-align: center;
+}
+</style>
+{% endblock %}
 {% block content %}
 	<!-- main content row-->
 	

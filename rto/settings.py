@@ -137,5 +137,5 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'sihmudbud2.0@gmail.com'
 EMAIL_HOST_PASSWORD = 'mudbud2.0'
 EMAIL_PORT = 587
-
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+ACCOUNT_ADAPTER = 'rto.adapter.AccountAdapter'
