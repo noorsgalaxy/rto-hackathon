@@ -116,10 +116,9 @@
 													      <th scope="row">{{ forloop.counter }}</th>
 													      <td>{{ puser_f.user_name }}</td>
 													      <td>{{ f.chassis_no }}</td>
-													{% if f.registration is not None %}
+													{% if f.registration_no is not None %}
 													      <td>{{ f.registration_no }}</td>
-													{% else %}
-													<td>Still not Registered</td>
+													
 													{% endif %}
 													      <td><a href="{% url 'vehicle_details' cs_no=f.chassis_no %}"><button type="button" class="btn btn-warning ">VIEW</button></td>
 													{% endfor %}

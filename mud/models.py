@@ -66,7 +66,7 @@ class VehicleDetails(models.Model):
     fuel_engine = models.CharField(max_length = 20)
     unladen_weight = models.IntegerField()
     body_color = models.CharField(max_length = 10)
-    registration_no = models.CharField(max_length = 20, blank = True, default = "")
+    registration_no = models.CharField(max_length = 20, blank = True, default = "Still not Registered")
 
     def __str__(self):
         return  str(self.chassis_no)

@@ -96,9 +96,8 @@ def pdetails(request):
             permanentadd = permanentadd.save(commit=False)
             permanentadd.user_personal = pdetail
             permanentadd.save()
-            print('goingg to save')
-
-            return HttpResponseRedirect('/mud/newregistration/%s'%('new'))
+            return HttpResponseRedirect('/mud/userdash/')
+#            return HttpResponseRedirect('/mud/newregistration/%s'%('new'))
         else:
             return HttpResponseRedirect('errrrrrr')
     else:
@@ -109,14 +108,29 @@ def pdetails(request):
 
 
 
+
+@login_required(login_url = '/accounts/login/')
+def pdetails_view(request):
+    pdetail_i = None
+    permanent_i = None
+    if request.method == 'GET':
+        pdetail_i = get_or_none(PersonalDetail, user = request.user)
+        permanentadd_i = get_or_none(PermanentAdd, user_personal = pdetail_i.aadhar_no)
+        if not pdetail_i:
+            return HttpResponseRedirect('/mud/pdetails')
+    pdetail_f = pdetail_i
+    permanent_f = permanentadd_i
+
+    return render(request, 'mud/userdetailsview.html', {'pdetail_f':pdetail_f,'permanentadd_f':permanent_f,'user':request.user})
+
 @login_required(login_url = '/accounts/login/')
 def accident_info(request,v_no):
-    print v_no
-    vdetails_i = get_object_or_404(VehicleDetails, registration_no=v_no)
-#        vdetails_i = VehicleDetails.objects.get(registration_no=v_no)
-    presentadd_i = get_object_or_404(PresentAdd, vehicle = vdetails_i)
+    vdetails_i = get_or_none(VehicleDetails, registration_no=v_no)
+    presentadd_i = get_or_none(PresentAdd, vehicle = vdetails_i)
     pdetail_i = vdetails_i.owner
-    permanentadd_i = get_object_or_404(PermanentAdd, user_personal = pdetail_i)
+    permanentadd_i = get_or_none(PermanentAdd, user_personal = pdetail_i)
+    if get_or_none(PoliceOfficer, vehicle_no = v_no) is not None:
+        accident_i = PoliceOfficer.objects.filter(vehicle_no = v_no)
     if request.method == 'POST':
         policeofficer = PoliceOfficerForm(request.POST)
         if policeofficer.is_valid() :
@@ -139,10 +153,10 @@ def accident_info(request,v_no):
 @login_required(login_url = '/accounts/login/')
 def pollution_check(request,v_no):
     try:
-        vdetails_i = VehicleDetails.objects.get(registration_no=v_no)
-        presentadd_i = PresentAdd.objects.get(vehicle = vdetails_i)
+        vdetails_i = get_or_none(VehicleDetails, registration_no=v_no)
+        presentadd_i = get_or_none(PresentAdd, vehicle = vdetails_i)
         pdetail_i = vdetails_i.owner
-        permanentadd_i = PermanentAdd.objects.get(user_personal = pdetail_i)
+        permanentadd_i = get_or_none(PermanentAdd, user_personal = pdetail_i)
     except:
         pdetail_i = None
         presentadd_i = None
@@ -170,14 +184,17 @@ def pollution_check(request,v_no):
 @login_required(login_url = '/accounts/login/')
 def user_dashboard(request):
     puser_f = get_or_none(PersonalDetail,user = request.user)
+    if puser_f is None:
+        return HttpResponseRedirect('/mud/pdetails')
     vno_f = VehicleDetails.objects.filter(owner = puser_f.aadhar_no)
+    print([i.registration_no for i in vno_f])
     return render(request, 'mud/UserDashboard.html', {'puser_f':puser_f,'vno_f':vno_f,'user_name':request.user})
 
 
 @login_required(login_url = '/accounts/login/')
 def vehicle_details(request,cs_no):
-    vdetails_i = get_object_or_404(VehicleDetails, chassis_no=cs_no)
-    present_i = get_object_or_404(PresentAdd, vehicle=cs_no)
+    vdetails_i = get_or_none(VehicleDetails, chassis_no=cs_no)
+    present_i = get_or_none(PresentAdd, vehicle=cs_no)
     vdetails_f = vdetails_i
     present_f = present_i
     return render(request, 'mud/UserDashboardVechiclesDetail.html', {'vdetails_f':vdetails_f,'present_f':present_f })
@@ -188,7 +205,8 @@ def main_page(request):
     return render(request, 'mud/MainPage.html')
 
 def police_dashboard(request):
-    vno = request.GET.get("vechicle-number") 
+    vno = request.GET.get("vechicle-number")
+
     if not vno:
 
         return render(request, 'mud/PoliceDashboard.html')
