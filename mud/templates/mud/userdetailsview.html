@@ -1,0 +1,115 @@
+<!-- search vechicle for police , PUC after login with there username and pass -->
+
+
+<!DOCTYPE html>
+{% extends "mud/base.html" %}
+{%load staticfiles %}
+{% load widget_tweaks %}
+
+{% block head_title %}User Dashboard{% endblock %}
+{% block content %}
+
+	<!-- main content row-->
+	
+	<!-- left panel of main body -->
+	
+	  		<div class="row">
+	  			<div class="container" style="width:100%;background: #08102d;">
+	  				<!-- row of user navigation bar -->
+				    {% include "mud/leftside.html" %}
+
+<div class="col-md-10" style=" background-color:white">
+	
+	<!-- personal details begin-->
+     <div class="row">
+      <div class="col-md-12">
+        <div class="panel panel-info">
+		
+			<div class="panel-heading"> Owner details | sih2018 </div>
+	           <div class="panel-body">
+						
+						<fieldset class="for-panel">
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-horizontal">               
+                  <label class="col-xs-5 control-label">Name:</label>
+                  <p class="form-control-static">{{ pdetail_f.user_name }}</p> 
+		  <label class="col-xs-5 control-label">Gender:</label>
+                  <p class="form-control-static">{{ pdetail_f.gender }}</p> 				  
+
+                    <label class="col-xs-5 control-label">Father's name: </label>
+                    <p class="form-control-static">{{ pdetail_f.father_name }}</p>   
+<label class="col-xs-5 control-label">Mother's name: </label>
+                    <p class="form-control-static">{{ pdetail_f.mother_name }}</p>   					
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-horizontal">   
+                  <label class="col-xs-5 control-label">Phone Number: </label>
+                  <p class="form-control-static">{{ pdetail_f.mobile_no }}</p>               			  
+                  <label class="col-xs-5 control-label">Pan Number: </label>
+                  <p class="form-control-static">{{ pdetail_f.pan_no }}</p>             
+                               
+                  <label class="col-xs-5 control-label">Aadhar no:</label>
+                  <p class="form-control-static">{{ pdetail_f.aadhar_no }}</p>             
+                  <label class="col-xs-5 control-label">email id:</label>
+                  <p class="form-control-static">{{ pdetail_f.email_id }}</p>            
+                              
+              </div>
+            </div>
+          </div>
+        </fieldset>	
+ 	
+				
+		         </div>
+		 	
+		 	</div>	
+	   </div>
+	  </div> 	
+	   <!--  personal details ends -->
+				
+		<!--  address details begin -->
+		<div class="row">
+				 	
+				<!-- -Adreess Details by user-->
+				<div class="col-md-12">
+				  <div class="panel panel-info">
+					<div class="panel-heading">
+						Permanent Address </div>
+					
+						<div class="panel-body">
+								
+						 			<fieldset class="for-panel">
+                    <div class="row">
+            <div class="col-sm-6">
+              <div class="form-horizontal">               
+                  <label class="col-xs-5 control-label">Address: </label>
+                  <p class="form-control-static">{{ permanentadd_f.add1 }}</p>               
+                  <label class="col-xs-5 control-label">State: </label>
+                  <p class="form-control-static">{{ permanentadd_f.state }}</p>               
+                  <label class="col-xs-5 control-label">District: </label>
+                  <p class="form-control-static">{{ permanentadd_f.district }}</p> 
+                  <label class="col-xs-5 control-label">Pin code: </label>
+                  <p class="form-control-static">{{ permanentadd_f.pincode }}</p>					
+              </div>
+            </div>
+        </fieldset>
+					     		
+						</div>
+					</div>
+				</div>
+				
+ 
+
+</div></div>
+					</div>
+</div>
+	<!-- menu section ends -->
+	
+	<!-- main content row begin -->
+<div class="row" style="
+    /* height: 50px; */
+">
+        <div class="col-md-12"></div>
+    </div>
+{% endblock %}

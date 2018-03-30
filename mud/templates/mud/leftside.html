@@ -6,7 +6,7 @@
 							<div class="profile-sidebar">
 								<!-- SIDEBAR USERPIC -->
 								<div class="profile-userpic">
-									<img src={% static "mud/res/img/login-user.png" %} class="img-responsive" alt="">
+									<img src={% static "mud/res/img/login-user.png"%} class="img-responsive" alt="">
 								</div>
 								<!-- END SIDEBAR USERPIC -->
 								<!-- SIDEBAR USER TITLE -->
@@ -23,22 +23,22 @@
 								<div class="profile-usermenu">
 									<div class="profile_nav">
 										<li >
-											<a href="/mud/userdash">
+											<a href="{% url 'user_dashboard' %}">
 											<i class="glyphicon glyphicon-home"></i>
 											User Dashboard</a>
 										</li>
 										<li >
-											<a href="#">
+											<a href="{% url 'pdetails_view' %}">
 											<i class="glyphicon glyphicon-user"></i>
 											Basic details </a>
 										</li>
 										<li>
-											<a href="{% url 'reg' purpose='new' %}">
+											<a href="{% url 'reg' purpose='edit' %}">
 											<i class="glyphicon glyphicon-list"></i>
 											Vechicle Registration </a>
 										</li>
 										<li>
-											<a href="#" >
+											<a href="#" target="_blank">
 											<i class="glyphicon glyphicon-ok"></i>
 											RC Transfer </a>
 										</li>
@@ -49,5 +49,4 @@
 							</div>
 						</div>
 					</div>
-
 {% endblock %}
