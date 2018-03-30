@@ -4,7 +4,7 @@ class AccountAdapter(DefaultAccountAdapter):
     def get_login_redirect_url(self, request):
         user = request.user
         try:
-            group = user.groups.all().first().name 
+            group = user.groups.all().first().name
         except:
             group = None
         print user,group,type(group)
