@@ -1,15 +1,11 @@
 <!-- entry page of website -->
-
-<!DOCTYPE html>
+{% extends "mud/base.html" %}
 {%load staticfiles %}
 {% load widget_tweaks %}
-<html>
-<head>
-<meta charset="ISO-8859-1">
-	  <link rel="stylesheet" href={% static "mud/css/vendor/bootstrap/bootstrap.min.css" %}>
-  	  <link rel="stylesheet" href={% static "mud/css/main.css" %}>
-<title>WELCOME</title>
 
+{% block head_title %}WELCOME{% endblock %}
+
+{% block extra_head %}
 <style>
 #main_content{
 	background: url({% static "mud/res/video/bg-gif.gif" %});
@@ -44,60 +40,8 @@
     text-align: center;
 }
 </style>
-
-</head>
-<body>
-<div class="row">
-	<!-- header section -->
-	<div class="row">
-		<header>
-		    <div class="container clearfix">
-		       <nav>
-		        	<a href="#">HOME</a>
-		            <a href=""><span class="glyphicon glyphicon-user"></span>SIGNUP</a>
-		            <a href=""><span class="glyphicon glyphicon-log-in"></span> LOGIN</a>
-		           
-		        </nav>
-		    </div>
-		</header><!-- /header -->
-	</div>
-	<div class="row">
-		 <div class="container">
-                        <div class="inline-section vertical-right-divider">
-                            <div id="logo">
-                                <a href="https://parivahan.gov.in/parivahan" title="Home">
-                                    <img src={% static "mud/res/img/logo-parivahan-sewa-en.png"%} class="emblem-resize"></a>
-                            </div>
-
-                        </div>
-                        <div class="inline-section fix-width">
-                            <div class="govt-india">
-                                Government of India 
-                            </div>
-                            <div class="slogan-name">
-                                Ministry of Urban Development &amp; Highways       
-                            </div>
-                        </div>
-           </div>
-	</div>
-	<!-- navigation menu section-->
-	<div class="row" >
-	
-		<nav class="navbar" id="navigation">
-		  <div class="container-fluid">
-		    
-		    <ul class="nav navbar-nav">
-		      <li class="active" ><a href="#" id="text">VISION</a></li>
-		      <li><a href="#" id="text">ABOUT US</a></li>
-		      <li><a href="#" id="text">FAQ</a></li>
-		      <li><a href="#" id="text">CONTACT US</a></li>
-		    </ul>
-		  </div>
-        </nav>
-	
-	</div>
-	<!-- navigation ends -->
-	
+{% endblock %}
+{% block content %}
 	<!-- main content row-->
 	
 	<div class="row" id="main">
@@ -228,32 +172,4 @@
 		
 		</div>
 	</div>
-	
-	<!-- footer -->
-	<div class="row" id="vahan-footer-section">
-           
-                <div class="col-md-3 left-position">
-                    
-                    
-                </div>
-                <div class="col-md-6 center-position">
-                    <div class="inline-section top-space">
-                        This Website belongs to MudBud2.0
-                        <br>
-                        Government of India
-                    </div>
-                </div>
-                <div class="col-md-3 right-position footer-line-height">
-                   
-                    
-                </div>
-            
-        </div>
-	
-	
-</div>
- <script src={% static "mud/js/vendor/jquery/jquery-2.1.4-min.js" %}></script>
- 
- <script src={% static "mud/js/vendor/bootstrap/bootstrap.min.js" %}></script>
-</body>
-</html>
+	{% endblock %}

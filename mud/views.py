@@ -55,11 +55,11 @@ def reg(request,purpose):
         else:
             pdetail_i = get_or_none(PersonalDetail, user = request.user)
             permanentadd_i = get_or_none(PermanentAdd,user_personal = pdetail_i)
-            vdetails_i = get_or_none(VehicleDetails, chassis_no=int(purpose))
+            vdetails_i = get_or_none(VehicleDetails, chassis_no=purpose)
             presentadd_i = get_or_none(PresentAdd, vehicle = vdetails_i)
     if request.method == 'POST':
         pdetail_i = get_or_none(PersonalDetail, user = request.user)
-        vdetails_i = get_or_none(VehicleDetails, chassis_no=int(purpose))
+        vdetails_i = get_or_none(VehicleDetails, chassis_no=purpose)
         presentadd_i = get_or_none(PresentAdd, vehicle = vdetails_i)
         presentadd = PresentAddForm(request.POST,instance=presentadd_i)
         vdetails = VehicleDetailsForm(request.POST,instance=vdetails_i)
@@ -111,6 +111,7 @@ def pdetails(request):
 
 @login_required(login_url = '/accounts/login/')
 def accident_info(request,v_no):
+    print v_no
     vdetails_i = get_object_or_404(VehicleDetails, registration_no=v_no)
 #        vdetails_i = VehicleDetails.objects.get(registration_no=v_no)
     presentadd_i = get_object_or_404(PresentAdd, vehicle = vdetails_i)

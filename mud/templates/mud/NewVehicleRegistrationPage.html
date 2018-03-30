@@ -1,51 +1,11 @@
 <!DOCTYPE html>
+{% extends "mud/base.html" %}
 {%load staticfiles %}
 {% load widget_tweaks %}
-<html>
-<head>
-<meta charset="ISO-8859-1">
-	  <link rel="stylesheet" href={% static "mud/css/vendor/bootstrap/bootstrap.min.css" %}>
-  	  <link rel="stylesheet" href={% static "mud/css/main.css" %}>
-<title>New Vehicle Registration</title>
-</head>
-<body>
- <div class="row">
- 	<div class="row">
-		 <div class="container">
-                        <div class="inline-section vertical-right-divider">
-                            <div id="logo">
-                                <a href="https://parivahan.gov.in/parivahan" title="Home">
-                                    <img src="HTTPS://parivahan.gov.in/parivahan/sites/default/files/logo-parivahan-sewa-en.png" class="emblem-resize"></a>
-                            </div>
 
-                        </div>
-                        <div class="inline-section fix-width">
-                            <div class="govt-india">
-                                Government of India 
-                            </div>
-                            <div class="slogan-name">
-                                Ministry of Urban Development &amp; Highways       
-                            </div>
-                        </div>
-           </div>
-	</div>
-	<!-- menu section begin -->
-	<div class="row" >
-	
-		<nav class="navbar" id="navigation">
-		  <div class="container-fluid">
-		    
-		    <ul class="nav navbar-nav">
-		      <li class="active" ><a href="#" id="text">VISION</a></li>
-		      <li><a href="#" id="text">ABOUT US</a></li>
-		      <li><a href="#" id="text">FAQ</a></li>
-		      <li><a href="#" id="text">CONTACT US</a></li>
-		    </ul>
-		  </div>
-        </nav>
-	
-	</div>
-	<!-- menu section ends -->
+{% block head_title %}New Vehicle Registration{% endblock %}
+{% block content %}
+
 	
 	<!-- main content row begin -->
 	<div class="row" style="margin-top:1.5%; margin-left:3%;margin-right:3%">
@@ -181,8 +141,4 @@
 	</div>
 	
  </div>
- <script src={% static "mud/js/vendor/jquery/jquery-2.1.4-min.js" %}></script>
- 
- <script src={% static "mud/js/vendor/bootstrap/bootstrap.min.js" %}></script>
-</body>
-</html>
+{% endblock %}
