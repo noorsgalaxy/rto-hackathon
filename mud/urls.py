@@ -14,5 +14,6 @@ urlpatterns = [
     url(r'^userdash/(?P<cs_no>\w+)/$', views.vehicle_details, name = 'vehicle_details'),
     url(r'^pdetailsview/$', views.pdetails_view, name='pdetails_view'),
     url(r'^accident/(?P<aid>\w+)/$', views.accident_details, name='accident_details'),
+    url(r'^$',  views.home_page, name = 'home_page'),
 ]
 
